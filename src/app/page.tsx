@@ -8,23 +8,20 @@ import Games from "@/app/components/games";
 import { FaDiscord } from "react-icons/fa";
 
 export default function Home() {
-  // State to control the overlay visibility
   const [overlayVisible, setOverlayVisible] = useState(true);
 
   useEffect(() => {
-    // Fade out the overlay after 3 seconds
     const timer = setTimeout(() => {
       setOverlayVisible(false);
-    }, 3000); // 3 seconds for the logo to be shown
+    }, 3000);
 
-    return () => clearTimeout(timer); // Cleanup on unmount
+    return () => clearTimeout(timer);
   }, []);
 
   return (
     <div>
       <Navbar />
       <div className="grid grid-rows-[auto_auto_auto_auto] font-[family-name:var(--font-geist-sans)]">
-        {/* Black screen overlay with logo */}
         <div
           className={`fixed inset-0 bg-black flex items-center justify-center transition-opacity duration-1000 ${overlayVisible ? 'opacity-100 z-50' : 'opacity-0 z-0 pointer-events-none'}`}
         >
@@ -42,7 +39,7 @@ export default function Home() {
               <FaDiscord
                 className="w-12 h-12 cursor-pointer hover:text-gray-500 transition duration-200"
                 onClick={() => {
-                  console.log("Discord icon clicked");
+                  location.href = "https://discord.gg/kKU6a4AYNk";
                 }}
               />
             </div>
