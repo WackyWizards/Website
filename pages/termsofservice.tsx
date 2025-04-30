@@ -1,11 +1,7 @@
-import React from 'react';
-import "../src/app/globals.css";
-
 export default function TermsOfService() {
     return (
-    <div>
-        <h2>Terms Of Service</h2>
-        <p>Terms Of Service</p>
-    </div>
-    )
+        <div className="p-4 bg-black max-w-2xl mx-auto">
+            <h2 className="text-2xl font-bold mb-4">Terms Of Service</h2>
+        </div>
+    );
 }
