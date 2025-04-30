@@ -3,18 +3,12 @@
 import { useState } from "react";
 import { FaChevronCircleLeft, FaChevronCircleRight } from "react-icons/fa";
 
-function Games() {
+export default function Games() {
     const games = [
-        {
-            title: "Hangout",
-            description: "Play games, build your own room, hang out with your friends!",
-            launchUri: "steam://run/590830//-rungame spoonstuff.hangout",
-            images: []
-        },
         {
             title: "Observation",
             description: "Work for a mysterious company, observe security cameras, report anomalies.\nInspired by I'm on Observation Duty.",
-            launchUri: "steam://run/590830//-rungame spoonstuff.observation",
+            launchUri: "/play/observation",
             images: [
                 {
                     src: "/observation-1.png",
@@ -25,6 +19,12 @@ function Games() {
                     alt: "Observation 2",
                 }
             ]
+        },
+        {
+            title: "Hangout",
+            description: "Play games, watch TV, build your own room, hang out with your friends!",
+            launchUri: "/play/hangout",
+            images: []
         }
     ];
 
@@ -56,26 +56,26 @@ function Games() {
             <div className="w-full h-full px-4 py-6 pt-20 pb-40">
                 <h2 className="text-5xl font-bold text-center text-white">Our Games</h2>
                 <p className="text-lg text-center text-gray-400 mt-4">Check out our latest games!</p>
-                {/* Game Carousel */}
-                <div className="relative w-full h-full overflow-hidden">
+                <div className="relative w-full h-full flex flex-col items-center justify-center overflow-hidden">
                     <div
-                        className="flex transition-transform duration-300 ease-in-out h-full"
+                        className="flex w-full transition-transform duration-300 ease-in-out h-full"
                         style={{ transform: `translateX(-${currentGameIndex * 100}%)` }}
                     >
                         {games.map((game, index) => (
-                            <div key={index} className="w-full flex-shrink-0 py-8 px-4">
+                            <div key={index} className="w-full flex-shrink-0 py-8 px-4 flex items-center justify-center">
                                 <div
-                                    className="bg-gray-800 p-6 shadow-md h-full flex flex-col relative"
+                                    className="relative p-6 shadow-md w-[70%] h-[85%] flex flex-col rounded-lg overflow-hidden"
                                     style={{
-                                        backgroundImage: game.images.length > 0 ? `url(${game.images[0].src})` : 'none',
+                                        backgroundImage: game.images.length > 0 ? `url(${game.images[0].src})` : undefined,
                                         backgroundSize: "cover",
+                                        backgroundRepeat: "no-repeat",
                                         backgroundPosition: "center",
+                                        backgroundColor: game.images.length === 0 ? "#2d2d2d" : "#1f2937",
                                     }}
                                 >
-                                    <div className="absolute inset-0 bg-black bg-opacity-50"></div> {/* Overlay for readability */}
-                                    <div className="relative z-10">
-                                        <h3 className="text-2xl font-medium mb-4 text-white">{game.title}</h3>
-                                        <p className="text-white text-lg flex-grow">{game.description}</p>
+                                    <div className="z-10 flex flex-col w-full h-full">
+                                        <h3 className="text-4xl font-medium mb-4 text-white">{game.title}</h3>
+                                        <p className="text-white text-lg flex-grow whitespace-pre-line">{game.description}</p>
                                         <div className="mt-auto">
                                             <button
                                                 onClick={() => launchGame(game.launchUri)}
@@ -97,7 +97,7 @@ function Games() {
                             aria-label="Previous game"
                             disabled={isAnimating}
                         >
-                            <FaChevronCircleLeft size={24} />
+                            <FaChevronCircleLeft size={35} />
                         </button>
                     </div>
                     <div className="absolute pr-4 right-4 top-1/2 z-10">
@@ -107,16 +107,16 @@ function Games() {
                             aria-label="Next game"
                             disabled={isAnimating}
                         >
-                            <FaChevronCircleRight size={24} />
+                            <FaChevronCircleRight size={35} />
                         </button>
                     </div>
 
-                    <div className="absolute bottom-20 left-0 right-0 flex justify-center gap-2">
+                    <div className="absolute bottom-10 left-0 right-0 flex justify-center gap-2">
                         {games.map((_, index) => (
                             <button
                                 key={index}
                                 onClick={() => goToGame(index)}
-                                className={`h-3 w-3 rounded-full ${index === currentGameIndex ? "bg-blue-500" : "bg-gray-500"}`}
+                                className={`h-4 w-4 rounded-full cursor-pointer ${index === currentGameIndex ? "bg-blue-500" : "bg-gray-500"}`}
                                 aria-label={`Go to game ${index + 1}`}
                                 disabled={isAnimating}
                             />
@@ -127,5 +127,3 @@ function Games() {
         </section>
     );
 }
-
-export default Games;

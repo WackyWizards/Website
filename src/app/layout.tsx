@@ -1,3 +1,4 @@
+import { OrgName } from "@/constants";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
@@ -13,8 +14,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-    title: "Unnamed Org",
-    description: "Unnamed Org's Website",
+    title: OrgName,
+    description: `${OrgName}'s Website`,
+    icons: ["/logo.ico"]
 };
 
 export default function RootLayout({

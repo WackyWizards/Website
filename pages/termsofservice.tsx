@@ -1,3 +1,6 @@
+import React from 'react';
+import "../src/app/globals.css";
+
 export default function TermsOfService() {
     return (
     <div>
