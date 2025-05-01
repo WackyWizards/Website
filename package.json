@@ -1,7 +1,10 @@
 {
   "name": "org-site",
   "version": "0.1.0",
-  "private": true,
+  "engines": {
+    "node": "20"
+  },
+  "private": false,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
