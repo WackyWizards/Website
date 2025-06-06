@@ -68,7 +68,7 @@ export default function GameLauncher() {
                 {status === "idle" && isValidGame && (
                     <button
                         onClick={launchGame}
-                        className="bg-green-500 hover:bg-green-600 text-white px-6 py-2 round-6 text-lg font-semibold transition-colors shadow-lg mb-4"
+                        className="bg-green-500 hover:bg-green-600 text-white px-6 py-2 rounded-full text-lg font-semibold transition-colors shadow-lg mb-4"
                     >
                         Launch {game}
                     </button>
@@ -81,7 +81,7 @@ export default function GameLauncher() {
                 {status === "idle" && isValidGame && (
                     <button
                         onClick={goBackToGames}
-                        className="bg-gray-700 hover:bg-gray-800 text-white px-5 py-2 round-6 text-base font-medium transition-colors"
+                        className="bg-gray-700 hover:bg-gray-800 text-white px-5 py-2 rounded-full text-base font-medium transition-colors"
                     >
                         Back to Games
                     </button>

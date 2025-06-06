@@ -43,7 +43,6 @@ export default function Home() {
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
-
     return (
         <div className="relative h-full min-h-screen overflow-hidden">
             <Navbar />
