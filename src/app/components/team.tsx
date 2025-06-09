@@ -31,6 +31,11 @@ const teamMembers: TeamMember[] = [
         role: "Programmer",
         image: "/Dutchy42.png",
     },
+        {
+        name: "SharpMars",
+        role: "Programmer",
+        image: "/pumpkin_mars.png",
+    },
 ];
 
 
