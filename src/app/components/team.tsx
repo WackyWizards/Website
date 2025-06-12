@@ -39,7 +39,7 @@ const teamMembers: TeamMember[] = [
     {
         name: "Tameranian",
         role: "3D Artist",
-        image: "/tameranian.jpg",
+        image: "/Tameranian.jpg",
     },
 ];
 
