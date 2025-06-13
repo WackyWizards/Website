@@ -3,8 +3,15 @@
 import { useState } from "react";
 import { FaChevronCircleLeft, FaChevronCircleRight } from "react-icons/fa";
 
+type Game = {
+    title: string;
+    description: string;
+    launchUri: string;
+    images: { src: string; alt: string }[];
+};
+
 export default function Games() {
-    const games = [
+    const games: Game[] = [
         {
             title: "Observation",
             description: "Work for a mysterious company, observe security cameras, report anomalies.\nInspired by I'm on Observation Duty.",
@@ -19,12 +26,6 @@ export default function Games() {
                     alt: "Observation 2",
                 }
             ]
-        },
-        {
-            title: "Hangout",
-            description: "Play games, watch TV, build your own room, hang out with your friends!",
-            launchUri: "/play/hangout",
-            images: []
         }
     ];
 
