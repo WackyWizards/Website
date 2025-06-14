@@ -8,27 +8,124 @@ import Games from "@/app/components/games";
 import Team from "@/app/components/team";
 
 import { FaDiscord } from "react-icons/fa";
+import { FaBluesky } from "react-icons/fa6";
 import { OrgName } from "@/constants";
 
 type BackgroundType = { type: "image" | "video"; src: string };
+type SocialLink = {
+    name: string;
+    icon: React.JSX.Element;
+    url: string;
+};
+
+const socialLinks: SocialLink[] = [
+    {
+        name: "Discord",
+        icon: <FaDiscord className="w-9 h-9" />,
+        url: "https://discord.gg/kKU6a4AYNk"
+    },
+    {
+        name: "Bluesky",
+        icon: <FaBluesky className="w-9 h-9" />,
+        url: "https://bsky.app/profile/kuo-team.com"
+    }
+];
+
+const adjectives = [
+    "Innovative",
+    "Creative",
+    "Visionary",
+    "Inspiring",
+    "Awesome",
+    "Ambitious",
+];
 
 export default function Home() {
     const [backgroundIndex, setBackgroundIndex] = useState(0);
+    const [currentAdjective, setCurrentAdjective] = useState(adjectives[0]);
+    const [displayedText, setDisplayedText] = useState("");
+    const [isTyping, setIsTyping] = useState(true);
+    const [showCursor, setShowCursor] = useState(true);
 
     const backgrounds: BackgroundType[] = [
         { type: "image", src: "/observation-1.png" },
         { type: "image", src: "/observation-2.jpg" }
     ];
 
+    // Background rotation timer (every 10 seconds)
     useEffect(() => {
         const bgTimer = setInterval(() => {
             setBackgroundIndex((prev) => (prev + 1) % backgrounds.length);
-        }, 10000); // background changes every 10s
+        }, 10000);
 
         return () => {
             clearInterval(bgTimer);
         };
     }, [backgrounds.length]);
+
+    // Typewriter effect
+    useEffect(() => {
+        let typeTimer: NodeJS.Timeout;
+        let eraseTimer: NodeJS.Timeout;
+        let nextWordTimer: NodeJS.Timeout;
+
+        const typeText = (text: string) => {
+            let i = 0;
+            setDisplayedText("");
+            setIsTyping(true);
+
+            const type = () => {
+                if (i < text.length) {
+                    setDisplayedText(text.slice(0, i + 1));
+                    i++;
+                    typeTimer = setTimeout(type, 100);
+                } else {
+                    setIsTyping(false);
+                    // Wait 3 seconds before starting to erase
+                    eraseTimer = setTimeout(() => eraseText(text), 8000);
+                }
+            };
+            type();
+        };
+
+        const eraseText = (text: string) => {
+            let i = text.length;
+            setIsTyping(true);
+
+            const erase = () => {
+                if (i > 0) {
+                    setDisplayedText(text.slice(0, i - 1));
+                    i--;
+                    typeTimer = setTimeout(erase, 50);
+                } else {
+                    setIsTyping(false);
+                    // Wait 500ms before next word
+                    nextWordTimer = setTimeout(() => {
+                        const nextIndex = (adjectives.indexOf(currentAdjective) + 1) % adjectives.length;
+                        setCurrentAdjective(adjectives[nextIndex]);
+                    }, 500);
+                }
+            };
+            erase();
+        };
+
+        typeText(currentAdjective);
+
+        return () => {
+            clearTimeout(typeTimer);
+            clearTimeout(eraseTimer);
+            clearTimeout(nextWordTimer);
+        };
+    }, [currentAdjective]);
+
+    // Cursor blink effect
+    useEffect(() => {
+        const cursorTimer = setInterval(() => {
+            setShowCursor(prev => !prev);
+        }, 500);
+
+        return () => clearInterval(cursorTimer);
+    }, []);
 
     const [isAtTop, setIsAtTop] = useState(true);
 
@@ -78,20 +175,36 @@ export default function Home() {
             </div>
 
             <div className="relative z-10 grid grid-rows-[auto_auto_auto_auto] font-[family-name:var(--font-geist-sans)]">
-                <section id="home" className="h-screen flex items-center justify-center p-8 sm:p-20">
-                    <main className="flex flex-col gap-8 items-center sm:items-start">
-                        <div className="flex gap-4 items-center flex-col">
-                            <h1 className="text-5xl font-bold uppercase text-white" style={{ textShadow: '0 0 4px black' }}>{OrgName}</h1>
-                            <p className="text-lg text-gray-300">Making Video Games For S&Box</p>
-                            <FaDiscord
-                                className="w-12 h-12 cursor-pointer hover:text-gray-400 transition duration-200"
-                                onClick={() => {
-                                    location.href = "https://discord.gg/kKU6a4AYNk";
-                                }}
-                            />
+                <section id="home" className="min-h-screen flex items-center justify-center px-4 py-8 sm:px-8 sm:py-20">
+                    <main className="flex flex-col gap-6 items-center text-center max-w-4xl w-full">
+                        <div className="flex gap-2 items-center flex-col">
+                            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold uppercase text-white">
+                                {OrgName}
+                            </h1>
+                            <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-gray-300">
+                                Making <span className="inline-block">
+                                    {displayedText}
+                                    <span className={`${showCursor || isTyping ? 'opacity-100' : 'opacity-0'} transition-opacity duration-100`}>|</span>
+                                </span> Video Games
+                            </p>
+                            <div className="flex gap-4 items-center justify-center">
+                                {socialLinks.map((link) => (
+                                    <a
+                                        key={link.name}
+                                        href={link.url}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="flex items-center justify-center transform hover:scale-105 transition-transform duration-200"
+                                    >
+                                        {link.icon}
+                                    </a>
+                                ))}
+                            </div>
                         </div>
                     </main>
-                    <div className={`absolute bottom-520 text-5xl text-white ${isAtTop ? "opacity-100 animate-bounce" : "opacity-0 pointer-events-none"} transition-opacity duration-700 `}>▼</div>
+
+                    {/* Scroll indicator */}
+                    <div className={`absolute bottom-510 text-5xl text-white ${isAtTop ? "opacity-100 animate-bounce" : "opacity-0 pointer-events-none"} transition-opacity duration-700 `}>▼</div>
                 </section>
 
                 <Games />
