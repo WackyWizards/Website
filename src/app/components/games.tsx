@@ -63,18 +63,18 @@ export default function Games() {
     };
 
     return (
-        <section id="games" className="w-full min-h-screen flex flex-col items-center justify-center bg-gray-900">
+        <section id="games" className="w-full flex flex-col items-center justify-center bg-gray-900">
             <div className="w-full h-full px-8 sm:px-6 lg:px-8 py-6 pt-8 sm:pt-20 pb-8 sm:pb-20">
                 {/* Header */}
-                <div className="text-center">
-                    <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-2 sm:mb-4">Our Games</h2>
+                <div className="text-center mb-8 sm:mb-10 lg:mb-12">
+                    <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-2 sm:mb-4">Our Games</h2>
                     <p className="text-base sm:text-lg text-gray-400">Check out our latest games!</p>
                 </div>
 
                 {/* Games Carousel */}
                 <div className="relative w-full flex-1 flex flex-col items-center justify-center overflow-hidden max-w-5xl mx-auto">
                     <div
-                        className="flex w-full transition-transform duration-300 ease-in-out min-h-[500px] sm:min-h-[700px]"
+                        className="flex w-full transition-transform duration-300 ease-in-out"
                         style={{ transform: `translateX(-${currentGameIndex * 100}%)` }}
                     >
                         {games.map((game, index) => (
