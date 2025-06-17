@@ -93,6 +93,8 @@ const teamMembers: TeamMember[] = [
             { message: "It feels like I'm in a dream!", weight: 1 },
             { message: "Go play <a style='border-bottom: 1px solid black;' href='https://store.steampowered.com/app/1973530/Limbus_Company/' target='_blank' rel='noopener noreferrer'>Limbus Company!</a> It's peak fiction!", weight: 0.2 },
             { message: "Beep Boop!", weight: 1 },
+            { message: "99% of gamblers quit right before they make it big!", weight: 1 },
+            { message: "Sometimes, I dream about cheese.", weight: 1 }
         ]
     },
     {
