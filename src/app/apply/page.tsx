@@ -2,6 +2,11 @@ import React from "react";
 import Navbar from "@/app/components/navbar";
 import Footer from "@/app/components/footer";
 
+export const metadata = {
+    title: "Apply",
+    description: "Join our team!"
+};
+
 export default function Apply() {
     return (
         <>

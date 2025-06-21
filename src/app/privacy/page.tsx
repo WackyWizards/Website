@@ -2,6 +2,11 @@ import React from "react";
 import Navbar from "@/app/components/navbar";
 import Footer from "@/app/components/footer";
 
+export const metadata = {
+    title: "Privacy Policy",
+    description: "Read how we handle your data!"
+};
+
 export default function PrivacyPolicy() {
     return (
         <>
