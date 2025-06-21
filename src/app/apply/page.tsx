@@ -1,5 +1,4 @@
 import React from "react";
-import "../src/app/globals.css";
 import Navbar from "@/app/components/navbar";
 import Footer from "@/app/components/footer";
 
