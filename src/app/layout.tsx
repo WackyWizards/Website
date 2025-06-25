@@ -1,4 +1,5 @@
 import { OrgName, GTag } from "@/constants";
+import { Suspense } from "react";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import Script from "next/script";
@@ -42,7 +43,9 @@ export default function RootLayout({
             </Script>
 
             <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-                <Analytics />
+                <Suspense fallback={null}>
+		            <Analytics />
+	            </Suspense>
                 {children}
             </body>
         </html>
