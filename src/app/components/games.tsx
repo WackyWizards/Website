@@ -2,38 +2,9 @@
 
 import { useState } from "react";
 import { FaChevronCircleLeft, FaChevronCircleRight } from "react-icons/fa";
-
-type Game = {
-    title: string;
-    description: string;
-    launchUri: string;
-    images: Image[];
-};
-
-type Image = {
-    src: string;
-    alt: string;
-};
+import { games } from "@/games";
 
 export default function Games() {
-    const games: Game[] = [
-        {
-            title: "Observation",
-            description: "Work for a mysterious company, observe security cameras, report anomalies.\nInspired by I'm on Observation Duty.",
-            launchUri: "/play/observation",
-            images: [
-                {
-                    src: "/observation-1.png",
-                    alt: "Observation 1",
-                },
-                {
-                    src: "/observation-2.png",
-                    alt: "Observation 2",
-                }
-            ]
-        }
-    ];
-
     const [currentGameIndex, setCurrentGameIndex] = useState(0);
     const [isAnimating, setIsAnimating] = useState(false);
 
@@ -102,12 +73,14 @@ export default function Games() {
                                             </p>
                                         </div>
                                         <div className="mt-4">
+                                            {game.launchUri && (
                                             <button
-                                                onClick={() => launchGame(game.launchUri)}
+                                                onClick={() => launchGame(game.launchUri!)}
                                                 className="w-full sm:w-auto bg-blue-600 text-white py-3 px-6 sm:px-8 rounded-md active:bg-blue-400 hover:bg-blue-500 transition duration-300 font-medium cursor-pointer text-base sm:text-lg"
                                             >
                                                 Play Game
                                             </button>
+                                            )}
                                         </div>
                                     </div>
 
