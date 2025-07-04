@@ -17,7 +17,7 @@ export default function Analytics() {
     const searchParams = useSearchParams();
 
     const loadGoogleAnalytics = () => {
-        console.log('🔄 Loading Google Analytics...');
+        console.log('Loading Google Analytics...');
         
         // Don't load if already loaded
         if (typeof window.gtag === "function" && window.gtagReady) {
@@ -44,7 +44,7 @@ export default function Analytics() {
                 // Set a flag to indicate gtag is ready
                 window.gtagReady = true;
                 
-                console.log('✅ Google Analytics initialized successfully');
+                console.log('Google Analytics initialized successfully');
             `;
             document.head.appendChild(script2);
         };
