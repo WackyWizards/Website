@@ -2,21 +2,22 @@
 
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
-import { 
-    FaPlus, 
-    FaGithub, 
-    FaGitlab, 
-    FaYoutube, 
-    FaTwitch, 
-    FaInstagram, 
-    FaTiktok, 
-    FaReddit, 
-    FaFacebook, 
-    FaLinkedin, 
-    FaSteam, 
-    FaTwitter, 
-    FaPatreon, 
-    FaGlobe } from "react-icons/fa";
+import {
+    FaPlus,
+    FaGithub,
+    FaGitlab,
+    FaYoutube,
+    FaTwitch,
+    FaInstagram,
+    FaTiktok,
+    FaReddit,
+    FaFacebook,
+    FaLinkedin,
+    FaSteam,
+    FaTwitter,
+    FaPatreon,
+    FaGlobe
+} from "react-icons/fa";
 import { SiBluesky, SiKofi } from "react-icons/si";
 
 type TeamMember = {
@@ -60,7 +61,7 @@ type SocialMediaIcon = {
 };
 
 // Social media icon mapping
-const socialIcons: SocialMediaIcon ={
+const socialIcons: SocialMediaIcon = {
     [SocialMedia.Website]: FaGlobe,
     [SocialMedia.GitHub]: FaGithub,
     [SocialMedia.GitLab]: FaGitlab,
@@ -228,7 +229,7 @@ export default function Team() {
                                     <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-white"></div>
                                 </div>
                             )}
-                            
+
                             {/* Avatar */}
                             <div
                                 className="w-20 h-20 sm:w-24 sm:h-24 lg:w-32 lg:h-32 rounded-full bg-gray-700 overflow-hidden mb-3 sm:mb-4 relative ring-3 ring-gray-800 hover:ring-blue-500 transition-all duration-400 cursor-pointer"
@@ -238,15 +239,17 @@ export default function Team() {
                                     src={member.avatar}
                                     alt={member.name}
                                     fill
+                                    sizes="(max-width: 640px) 80px, (max-width: 1024px) 96px, 128px"
                                     className="object-cover hover:scale-105 transition-transform duration-300"
                                 />
+
                             </div>
-                            
+
                             {/* Name */}
                             <h3 className="text-lg sm:text-xl lg:text-2xl font-semibold leading-tight">
                                 {member.name}
                             </h3>
-                            
+
                             {/* Role */}
                             <p className="text-xs sm:text-sm lg:text-base text-gray-400 leading-relaxed px-1 mb-2">
                                 {member.role}
