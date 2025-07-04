@@ -4,7 +4,7 @@ import Footer from "@/app/components/footer";
 
 export const metadata = {
     title: "Privacy Policy",
-    description: "Read how we handle your data!"
+    description: "Our privacy policy explains what data we collect, how we use it, and how you can control it across our services."
 };
 
 export default function PrivacyPolicy() {
@@ -17,94 +17,263 @@ export default function PrivacyPolicy() {
                         <h1 className="text-3xl md:text-4xl font-semibold text-gray-800">
                             Privacy Policy
                         </h1>
-                        <p className="mt-2 text-gray-600">Effective Date: June 21st, 2025</p>
+                        <p className="mt-2 text-gray-600">Last Updated: July 4th, 2025</p>
                     </header>
 
-                    <p className="mb-4">
-                    We value your privacy. This policy outlines what data we collect, how we use it,
-                    and your rights regarding your personal information when you use our related services.
-                </p>
+                    <div className="prose prose-gray max-w-none">
+                        <p className="mb-6 text-lg">
+                            We are committed to protecting your privacy and being transparent about how we handle your data. 
+                            This policy explains what information we collect, why we collect it, how we use it, and your rights 
+                            regarding your personal data when you use our services.
+                        </p>
 
-                <h2 className="text-2xl font-semibold mt-8 mb-2">📌 What We Collect</h2>
-                <p className="mb-2">
-                    When you register an account with our backend services through Discord,
-                    we collect and store:
-                </p>
-                <ul className="list-disc list-inside mb-4">
-                    <li>Your Discord User ID</li>
-                    <li>User Statistics (e.g., XP, level, perks)</li>
-                </ul>
-                <p className="mb-2">
-                    When you register an account with our backend services through Steam,
-                    we collect and store:
-                </p>
-                <ul className="list-disc list-inside mb-4">
-                    <li>Your Steam ID</li>
-                    <li>In-game statistics (e.g., XP, level, perks)</li>
-                </ul>
-                <p className="mb-2">If you optionally link a third-party account (such as Steam), we may also collect:</p>
-                <ul className="list-disc list-inside mb-4">
-                    <li>Your equivalent third-party identifier</li>
-                    <li>Metadata needed to enable cross-service features</li>
-                </ul>
-                <p className="mb-4">
-                    We do not collect any other personal or personally identifiable information.
-                </p>
+                        <h2 className="text-2xl font-semibold mt-8 mb-4 text-gray-800">Information We Collect</h2>
+                        
+                        <h3 className="text-xl font-medium mt-6 mb-3">Discord Account Registration</h3>
+                        <p className="mb-2">When you register through Discord with our backend services, we collect and store:</p>
+                        <ul className="list-disc list-inside mb-4 ml-4">
+                            <li>Your Discord User ID (required for service functionality)</li>
+                            <li>Your Discord username and any associated legacy identifiers</li>
+                            <li>User statistics including XP, level, and unlocked perks</li>
+                            <li>Server interaction data and timestamps</li>
+                        </ul>
 
-                <h2 className="text-2xl font-semibold mt-8 mb-2">🔧 Why We Collect It</h2>
-                <ul className="list-disc list-inside mb-4">
-                    <li>Enable core gameplay features such as leveling and XP</li>
-                    <li>Associate in-server statistics with your Discord account</li>
-                </ul>
+                        <h3 className="text-xl font-medium mt-6 mb-3">Steam Account Registration</h3>
+                        <p className="mb-2">When you register through Steam with our backend services, we collect and store:</p>
+                        <ul className="list-disc list-inside mb-4 ml-4">
+                            <li>Your Steam ID (required for service functionality)</li>
+                            <li>Your Steam profile name</li>
+                            <li>In-game statistics including XP, level, and unlocked perks</li>
+                            <li>Game session data and timestamps</li>
+                        </ul>
 
-                <h2 className="text-2xl font-semibold mt-8 mb-2">🔐 How Your Data Is Stored</h2>
-                <p className="mb-4">
-                    Your data is stored securely in a private, access-restricted database.
-                    We do not sell, share, or expose your data to third parties.
-                    Our hosting providers and development tools may process data as part of normal operation,
-                    but they do not access or retain your personal data for any independent purpose.
-                </p>
+                        <h3 className="text-xl font-medium mt-6 mb-3">Optional Linked Accounts</h3>
+                        <p className="mb-2">If you choose to link third-party accounts, we may collect:</p>
+                        <ul className="list-disc list-inside mb-4 ml-4">
+                            <li>Third-party platform identifiers</li>
+                            <li>Cross-platform metadata necessary for linked features</li>
+                        </ul>
 
-                <h2 className="text-2xl font-semibold mt-8 mb-2">🔗 Linked Accounts</h2>
-                <p className="mb-2">
-                    Users may optionally link their Discord account to a third-party service (e.g., Steam).
-                    If you choose to do so, we may collect and store identifiers from both platforms to enable features such as:
-                </p>
-                <ul className="list-disc list-inside mb-4">
-                    <li>Syncing data</li>
-                    <li>Displaying cross-platform profiles</li>
-                    <li>Unlocking rewards</li>
-                </ul>
-                <p className="mb-4">
-                    Linking accounts is entirely optional and requires your explicit consent.
-                    You can request to unlink and delete linked data at any time by contacting server administration.
-                </p>
+                        <h3 className="text-xl font-medium mt-6 mb-3">Automatically Collected Information</h3>
+                        <p className="mb-2">
+                            This data is collected automatically through our backend systems and third-party analytics tools to improve security, monitor performance, and understand user behavior.
+                            </p>
+                        <ul className="list-disc list-inside mb-4 ml-4">
+                            <li>IP addresses</li>
+                            <li>Device information and browser type</li>
+                            <li>Usage analytics and performance metrics</li>
+                            <li>Website navigation patterns and page views</li>
+                            <li>Session duration and bounce rates</li>
+                            <li>Error logs and crash reports</li>
+                        </ul>
 
-                <h2 className="text-2xl font-semibold mt-8 mb-2">⚖️ Your Rights</h2>
-                <p className="mb-4">
-                    If you are located in the European Union or other regions with data protection laws, you have the right to:
-                </p>
-                <ul className="list-disc list-inside mb-4">
-                    <li>Access the data we hold about you</li>
-                    <li>Request correction or deletion of your data</li>
-                    <li>Withdraw consent for optional linked accounts</li>
-                    <li>Lodge a complaint with a data protection authority</li>
-                </ul>
-                <p className="mb-4">We will respond to any data request within 30 days.</p>
+                        <h2 className="text-2xl font-semibold mt-8 mb-4 text-gray-800">Legal Basis for Processing</h2>
+                        <p className="mb-4">We process your data based on the following legal grounds:</p>
+                        <ul className="list-disc list-inside mb-4 ml-4">
+                            <li><strong>Contractual Necessity:</strong> Processing required to provide our gaming services</li>
+                            <li><strong>Legitimate Interest:</strong> Improving service quality, security, and user experience</li>
+                            <li><strong>Consent:</strong> Optional features like account linking (you can withdraw consent anytime)</li>
+                            <li><strong>Legal Obligation:</strong> Compliance with applicable laws and regulations</li>
+                        </ul>
 
-                <h2 className="text-2xl font-semibold mt-8 mb-2">🗑️ Data Deletion</h2>
-                <p className="mb-4">
-                    To delete your data, you may email us at the address below.
-                    Deletion includes all stored identifiers and associated statistics.
-                    Requests are processed within 14 days.
-                </p>
+                        <h2 className="text-2xl font-semibold mt-8 mb-4 text-gray-800">How We Use Your Information</h2>
+                        <ul className="list-disc list-inside mb-4 ml-4">
+                            <li>Enable core gameplay features including leveling, XP tracking, and progression systems</li>
+                            <li>Associate statistics and achievements with your account across platforms</li>
+                            <li>Provide customer support and respond to your inquiries</li>
+                            <li>Prevent fraud, abuse, and maintain service security</li>
+                            <li>Analyze website usage patterns to improve our services and user experience</li>
+                            <li>Monitor website performance and identify technical issues</li>
+                            <li>Send important service updates and notifications</li>
+                        </ul>
 
-                <h2 className="text-2xl font-semibold mt-8 mb-2">💬 Contact</h2>
-                <p className="mb-4">
-                    For questions or concerns about this policy or your data, please contact the development team via Discord
-                    or by email at:
-                </p>
-                <p className="font-semibold">📧 contact.kuo.team@gmail.com</p>
+                        <h2 className="text-2xl font-semibold mt-8 mb-4 text-gray-800">Data Storage and Security</h2>
+                        <p className="mb-4">
+                            Your registered user data is stored securely in a private database with restricted access controls.
+                        </p>
+                        <p className="mb-4">
+                            <strong>Data Location:</strong> Our primary data server is located in Helsinki, Finland. 
+                            We use reputable hosting providers including Hetzner who maintain appropriate data protection standards.
+                        </p>
+
+                        <h2 className="text-2xl font-semibold mt-8 mb-4 text-gray-800">International Data Transfers</h2>
+                        <p className="mb-4">
+                            If you are located outside our primary server region, your data may be transferred internationally. 
+                            We ensure adequate protection through:
+                        </p>
+                        <ul className="list-disc list-inside mb-4 ml-4">
+                            <li>Standard Contractual Clauses (SCCs) with service providers</li>
+                            <li>Adequacy decisions where applicable</li>
+                            <li>Additional safeguards as required by local data protection laws</li>
+                        </ul>
+
+                        <h2 className="text-2xl font-semibold mt-8 mb-4 text-gray-800">Data Sharing</h2>
+                        <p className="mb-4">We do not sell your personal data. We may share data only in these limited circumstances:</p>
+                        <ul className="list-disc list-inside mb-4 ml-4">
+                            <li><strong>Service Providers:</strong> Trusted partners who help operate our services (hosting, analytics)</li>
+                            <li><strong>Google Analytics:</strong> Website usage data is shared with Google for analytics purposes</li>
+                            <li><strong>Legal Requirements:</strong> When required by law, court order, or to protect our rights</li>
+                            <li><strong>Business Transfers:</strong> In case of merger, acquisition, or asset sale (with notice)</li>
+                            <li><strong>Consent:</strong> When you explicitly agree to sharing for specific purposes</li>
+                        </ul>
+                        <p className="mb-4">
+                            <strong>Third-Party Services:</strong> When you use our website, some data may be automatically shared with third-party services we use:
+                        </p>
+                        <ul className="list-disc list-inside mb-4 ml-4">
+                            <li><strong>Google:</strong> Analytics data for website performance measurement</li>
+                            <li><strong>Hosting Providers:</strong> Technical data necessary for website operation</li>
+                        </ul>
+
+                        <h2 className="text-2xl font-semibold mt-8 mb-4 text-gray-800">Data Retention</h2>
+                        <ul className="list-disc list-inside mb-4 ml-4">
+                            <li><strong>Active Accounts:</strong> Data retained while your account is active and for 2 years after last activity</li>
+                            <li><strong>Inactive Accounts:</strong> Automatically deleted after 3 years of inactivity</li>
+                            <li><strong>Deleted Accounts:</strong> Permanently removed within 30 days of deletion request</li>
+                            <li><strong>Legal Hold:</strong> Some data may be retained longer if required by law or for legitimate business purposes</li>
+                            <li><strong>Backup Systems:</strong> Data in backups is deleted according to our backup retention schedule (maximum 1 year)</li>
+                        </ul>
+
+                        <h2 className="text-2xl font-semibold mt-8 mb-4 text-gray-800">Linked Accounts</h2>
+                        <p className="mb-4">
+                            Account linking is entirely optional and requires your explicit consent. When you link accounts, we can:
+                        </p>
+                        <ul className="list-disc list-inside mb-4 ml-4">
+                            <li>Synchronize progress and statistics across platforms</li>
+                            <li>Display unified cross-platform profiles</li>
+                            <li>Enable cross-platform rewards and achievements</li>
+                            <li>Provide enhanced social features</li>
+                        </ul>
+                        <p className="mb-4">
+                            You can unlink accounts and request deletion of linked data at any time by contacting us.
+                        </p>
+
+                        <h2 className="text-2xl font-semibold mt-8 mb-4 text-gray-800">Cookies and Tracking Technologies</h2>
+                        <p className="mb-4">
+                            While we do not set cookies ourselves, integrated third-party tools such as Google Analytics may use cookies or similar tracking technologies. We do not control or access these cookies directly.
+                        </p>
+                        <p className="mb-4">
+                            Our website does not respond to Do Not Track (DNT) signals from browsers. However, you can manage tracking preferences through your browser settings or opt out of Google Analytics as described below.
+                        </p>
+                        <h3 className="text-lg font-medium mt-4 mb-2">Google Analytics</h3>
+                        <p className="mb-2">We use Google Analytics to understand how visitors interact with our website. Google Analytics collects:</p>
+                        <ul className="list-disc list-inside mb-4 ml-4">
+                            <li>Pages visited and time spent on each page</li>
+                            <li>How you arrived at our website (referral sources)</li>
+                            <li>Your approximate geographic location (country/city level)</li>
+                            <li>Device and browser information</li>
+                            <li>User interactions and navigation patterns</li>
+                        </ul>
+                        <p className="mb-4">
+                            Google Analytics uses cookies and may combine information collected on our site with other information Google has about you. 
+                            You can learn more about how Google uses your data at <a href="https://policies.google.com/privacy/partners" className="text-blue-600 underline">https://policies.google.com/privacy/partners</a>.
+                        </p>
+                        <p className="mb-4">
+                            <strong>Opt-out:</strong> You can opt out of Google Analytics by installing the <a href="https://tools.google.com/dlpage/gaoptout" className="text-blue-600 underline">Google Analytics Opt-out Browser Add-on</a> or by adjusting your browser&apos;s cookie settings.
+                        </p>
+
+                        <h3 className="text-lg font-medium mt-4 mb-2">Managing Cookies</h3>
+                        <p className="mb-4">
+                            You can control cookies through your browser settings. Most browsers allow you to:
+                        </p>
+                        <ul className="list-disc list-inside mb-4 ml-4">
+                            <li>View and delete existing cookies</li>
+                            <li>Block all cookies or cookies from specific sites</li>
+                            <li>Receive notifications when cookies are set</li>
+                        </ul>
+                        <p className="mb-4">
+                            Note that disabling certain cookies may limit website functionality and affect your user experience.
+                        </p>
+
+                        <h2 className="text-2xl font-semibold mt-8 mb-4 text-gray-800">Children&apos;s Privacy</h2>
+                        <p className="mb-4">
+                            Our services are not intended for children under 13 years of age. We do not knowingly collect 
+                            personal information from children under 13. If we become aware that we have collected personal 
+                            information from a child under 13, we will take steps to delete such information promptly.
+                        </p>
+                        <p className="mb-4">
+                            We comply with the Children’s Online Privacy Protection Act (COPPA) and do not knowingly collect data from children under 13 in the United States.
+                        </p>
+                        <p className="mb-4">
+                            If you are a parent or guardian and believe your child has provided us with personal information, 
+                            please contact us immediately.
+                        </p>
+
+                        <h2 className="text-2xl font-semibold mt-8 mb-4 text-gray-800">Your Privacy Rights</h2>
+                        <p className="mb-4">Depending on your location, you may have the following rights:</p>
+                        
+                        <h3 className="text-lg font-medium mt-4 mb-2">All Users</h3>
+                        <ul className="list-disc list-inside mb-4 ml-4">
+                            <li>Request access to your personal data</li>
+                            <li>Request correction of inaccurate data</li>
+                            <li>Request deletion of your data</li>
+                            <li>Withdraw consent for optional processing</li>
+                        </ul>
+
+                        <h3 className="text-lg font-medium mt-4 mb-2">EU/UK Users (GDPR)</h3>
+                        <ul className="list-disc list-inside mb-4 ml-4">
+                            <li>Right to data portability</li>
+                            <li>Right to restrict processing</li>
+                            <li>Right to object to processing</li>
+                            <li>Right to lodge complaints with supervisory authorities</li>
+                        </ul>
+
+                        <h3 className="text-lg font-medium mt-4 mb-2">California Users (CCPA)</h3>
+                        <ul className="list-disc list-inside mb-4 ml-4">
+                            <li>Right to know what personal information is collected</li>
+                            <li>Right to delete personal information</li>
+                            <li>Right to opt-out of the sale of personal information</li>
+                            <li>Right to non-discrimination for exercising privacy rights</li>
+                        </ul>
+
+                        <p className="mb-4">
+                            <strong>Response Time:</strong> We will respond to privacy requests within 30 days (or as required by applicable law).
+                        </p>
+
+                        <h2 className="text-2xl font-semibold mt-8 mb-4 text-gray-800">Data Deletion</h2>
+                        <p className="mb-4">You can request data deletion through:</p>
+                        <ul className="list-disc list-inside mb-4 ml-4">
+                            <li>Your account settings (self-service deletion)</li>
+                            <li>Emailing us at the contact address below</li>
+                            <li>Contacting us through Discord</li>
+                        </ul>
+                        <p className="mb-4">
+                            <strong>Processing Time:</strong> Deletion requests are processed within 14 days. Some data may be 
+                            retained longer if required by law or for legitimate business purposes (e.g., fraud prevention).
+                        </p>
+
+                        <h2 className="text-2xl font-semibold mt-8 mb-4 text-gray-800">Policy Updates</h2>
+                        <p className="mb-4">
+                            We may update this privacy policy from time to time. When we make material changes, we will:
+                        </p>
+                        <ul className="list-disc list-inside mb-4 ml-4">
+                            <li>Update the &quot;Last Updated&quot; date at the top of this policy</li>
+                            <li>Notify users via our official discord server and in-service notifications.</li>
+                            <li>Obtain new consent where required by law</li>
+                        </ul>
+                        <p className="mb-4">
+                            Continued use of our services after policy updates constitutes acceptance of the revised policy.
+                        </p>
+
+                        <h2 className="text-2xl font-semibold mt-8 mb-4 text-gray-800">Contact Information</h2>
+                        <p className="mb-4">
+                            For questions, concerns, or requests regarding this privacy policy or your personal data, please contact us:
+                        </p>
+                        
+                        <div className="bg-gray-50 p-6 rounded-lg mb-6">
+                            <p className="mb-2"><strong>📧 Email:</strong> contact.kuo.team@gmail.com</p>
+                            <p className="mb-2"><strong>💬 Discord (support server):</strong> <a href="https://www.kuo-team.com/discord">https://www.kuo-team.com/discord</a></p>
+                            <p className="mb-2"><strong>⏱️ Response Time:</strong> We aim to respond within 48 hours for general inquiries and within 30 days for formal privacy requests.</p>
+                            <p className="text-sm text-gray-600">
+                                Note: For privacy-related requests, we recommend using email for verification and documentation purposes.
+                            </p>
+                        </div>
+
+                        <div className="border-t border-gray-200 pt-4">
+                            <p className="text-sm text-gray-600">
+                                By using our services, you agree to the terms outlined in this privacy policy. If you do not agree, please discontinue use of our services.
+                            </p>
+                        </div>
+                    </div>
                 </div>
             </main>
             <Footer />
