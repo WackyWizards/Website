@@ -1,83 +1,79 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import CookieConsent from 'react-cookie-consent';
 import { GTag } from '@/constants';
 
 export default function CookieConsentBanner() {
-    const [mounted, setMounted] = useState(false);
+    const [showBanner, setShowBanner] = useState(false);
 
     useEffect(() => {
-        setMounted(true);
+        const consent = localStorage.getItem('analytics_enabled');
+        if (consent === null) {
+            setShowBanner(true);
+        } else if (consent === 'true') {
+            loadGoogleAnalytics();
+        }
     }, []);
 
     const loadGoogleAnalytics = () => {
-        const analyticsScript = document.createElement('script');
-        analyticsScript.src = `https://www.googletagmanager.com/gtag/js?id=${GTag}`;
-        analyticsScript.async = true;
-        
-        analyticsScript.onload = () => {
-            console.log('Google Analytics script loaded successfully');
-            
-            // Initialize Google Analytics after the script loads
-            const script2 = document.createElement('script');
-            script2.innerHTML = `
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){dataLayer.push(arguments);}
-                gtag('js', new Date());
-                gtag('config', '${GTag}');
-                
-                // Set a flag to indicate gtag is ready
-                window.gtagReady = true;
-                
-                // Log successful initialization
-                console.log('Google Analytics initialized successfully');
-            `;
-            document.head.appendChild(script2);
+        if (window.gtagReady) return;
+
+        const script = document.createElement('script');
+        script.src = `https://www.googletagmanager.com/gtag/js?id=${GTag}`;
+        script.async = true;
+        script.onload = () => {
+            const inlineScript = document.createElement('script');
+            inlineScript.innerHTML = `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${GTag}');
+            window.gtagReady = true;
+        `;
+            document.head.appendChild(inlineScript);
+            console.log('Google Analytics loaded and initialized');
         };
-        
-        // Handle script load error
-        analyticsScript.onerror = () => {
-            console.error('Failed to load Google Analytics script');
-        };
-        
-        document.head.appendChild(analyticsScript);
+        document.head.appendChild(script);
     };
 
     const handleAccept = () => {
-        console.log("User accepted cookies");
-        // Set a flag to indicate analytics is enabled
         localStorage.setItem('analytics_enabled', 'true');
         loadGoogleAnalytics();
+        setShowBanner(false);
     };
 
     const handleDecline = () => {
-        console.log("User declined cookies");
         localStorage.setItem('analytics_enabled', 'false');
-        
-        if (window.gtag) {
-            console.log('Disabling Google Analytics...');
-            window.gtag('config', GTag, {
-                send_page_view: false
-            });
-        }
+        setShowBanner(false);
     };
 
-    if (!mounted) {
-        return null;
-    }
+    if (!showBanner) return null;
 
     return (
-        <CookieConsent
-            location="bottom"
-            buttonText="Accept"
-            declineButtonText="Decline"
-            enableDeclineButton
-            onAccept={handleAccept}
-            onDecline={handleDecline}
-            cookieName="my_site_cookie_consent"
-        >
-            We use cookies to improve your experience. By continuing, you agree to our use of cookies. You can read more about our cookie policy in our <a href="/privacy" style={{ color: '#fff', textDecoration: 'underline' }}>Privacy Policy</a>.
-        </CookieConsent>
+        <div className="fixed bottom-0 inset-x-0 bg-gray-900 text-white px-4 py-3 z-50">
+            <div className="mx-auto flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+                <p className="text-sm sm:mr-4">
+                    We use cookies to improve your experience. Read our{' '}
+                    <a href="/privacy" className="underline text-blue-400 hover:text-blue-300">
+                        privacy policy
+                    </a>.
+                </p>
+                <div className="flex flex-wrap gap-2 justify-end">
+                    <button
+                        onClick={handleDecline}
+                        className="bg-gray-600 text-white px-4 py-2 text-sm rounded hover:bg-gray-500 hover:shadow-lg transition duration-200 cursor-pointer"
+                    >
+                        Decline
+                    </button>
+                    <button
+                        onClick={handleAccept}
+                        className="bg-blue-600 text-white px-4 py-2 text-sm rounded hover:bg-blue-500 hover:shadow-lg transition duration-200 cursor-pointer"
+                    >
+                        Accept
+                    </button>
+                </div>
+            </div>
+        </div>
     );
+
 }
