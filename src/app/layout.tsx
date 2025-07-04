@@ -1,9 +1,9 @@
-import { OrgName, GTag } from "@/constants";
+import { OrgName } from "@/constants";
 import { Suspense } from "react";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import Script from "next/script";
 import Analytics from "@/app/analytics";
+import CookieConsentBanner from "@/app/components/cookieconsentbanner";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -29,24 +29,12 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en">
-            <Script
-                src={`https://www.googletagmanager.com/gtag/js?id=${GTag}`}
-                strategy="afterInteractive"
-            />
-            <Script id="google-analytics" strategy="afterInteractive">
-                {`
-                    window.dataLayer = window.dataLayer || [];
-                    function gtag(){dataLayer.push(arguments);}
-                    gtag('js', new Date());
-                    gtag('config', '${GTag}');
-                `}
-            </Script>
-
             <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
                 <Suspense fallback={null}>
-		            <Analytics />
-	            </Suspense>
+                    <Analytics />
+                </Suspense>
                 {children}
+                <CookieConsentBanner />
             </body>
         </html>
     );
