@@ -143,6 +143,21 @@ const teamMembers: TeamMember[] = [
         socialLinks: [],
         messages: []
     },
+    {
+        name: "Yumeko",
+        role: "Concept Artist, UI/UX Designer",
+        avatar: "/Yumeko.png",
+        socialLinks: [],
+        messages: [
+            { message: "You clicked.", weight: 1 },
+            { message: "Try clicking again.", weight: 1 },
+            { message: "Click another time.", weight: 1 },
+            { message: "At 100 clicks something magical might happen!", weight: 1 },
+            { message: "Click just one more time...", weight: 1 },
+            { message: "Click again!", weight: 1 },
+            { message: "One more click!", weight: 1 },
+        ]
+    }
 ];
 
 type BubbleMessage = {
