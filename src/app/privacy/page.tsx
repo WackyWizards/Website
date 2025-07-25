@@ -203,7 +203,7 @@ export default function PrivacyPolicy() {
                             information from a child under 13, we will take steps to delete such information promptly.
                         </p>
                         <p className="mb-4">
-                            We comply with the Children's Online Privacy Protection Act (COPPA) and do not knowingly collect data from children under 13 in the United States.
+                            We comply with the Children&apos;s Online Privacy Protection Act (COPPA) and do not knowingly collect data from children under 13 in the United States.
                         </p>
                         <p className="mb-4">
                             If you are a parent or guardian and believe your child has provided us with personal information, 
