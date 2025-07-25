@@ -31,7 +31,7 @@ const socialLinks: SocialLink[] = [
     }
 ];
 
-const adjectives = [
+const adjectives: string[] = [
     "Innovative",
     "Creative",
     "Visionary",

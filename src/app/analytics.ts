@@ -60,7 +60,7 @@ export default function Analytics() {
         const analyticsEnabled = localStorage.getItem('analytics_enabled');
         
         if (analyticsEnabled !== 'true') {
-            console.log('Analytics disabled by user preference');
+            console.log('Analytics disabled');
             return;
         }
 
