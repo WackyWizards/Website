@@ -3,7 +3,7 @@ import { Suspense } from "react";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import Analytics from "@/app/analytics";
-import CookieConsentBanner from "@/app/components/cookieconsentbanner";
+import CookieConsent from "@/app/components/cookieconsent";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -34,7 +34,7 @@ export default function RootLayout({
                     <Analytics />
                 </Suspense>
                 {children}
-                <CookieConsentBanner />
+                <CookieConsent />
             </body>
         </html>
     );
