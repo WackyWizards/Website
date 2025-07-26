@@ -1,17 +1,17 @@
-"use client";
+'use client';
 
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
 
-import Navbar from "@/app/components/navbar";
-import Footer from "@/app/components/footer";
-import Games from "@/app/components/games";
-import Team from "@/app/components/team";
+import Navbar from '@/app/components/navbar';
+import Footer from '@/app/components/footer';
+import Games from '@/app/components/games';
+import Team from '@/app/components/team';
 
-import { FaDiscord } from "react-icons/fa";
-import { FaBluesky } from "react-icons/fa6";
-import { OrgName } from "@/constants";
+import { FaDiscord } from 'react-icons/fa';
+import { FaBluesky } from 'react-icons/fa6';
+import { OrgName } from '@/constants';
 
-type BackgroundType = { type: "image" | "video"; src: string };
+type BackgroundType = { type: 'image' | 'video'; src: string };
 type SocialLink = {
     name: string;
     icon: React.JSX.Element;
@@ -20,36 +20,36 @@ type SocialLink = {
 
 const socialLinks: SocialLink[] = [
     {
-        name: "Discord",
+        name: 'Discord',
         icon: <FaDiscord className="w-9 h-9" />,
-        url: "https://discord.gg/kKU6a4AYNk"
+        url: 'https://discord.gg/kKU6a4AYNk'
     },
     {
-        name: "Bluesky",
+        name: 'Bluesky',
         icon: <FaBluesky className="w-9 h-9" />,
-        url: "https://bsky.app/profile/kuo-team.com"
+        url: 'https://bsky.app/profile/kuo-team.com'
     }
 ];
 
 const adjectives: string[] = [
-    "Innovative",
-    "Creative",
-    "Visionary",
-    "Inspiring",
-    "Awesome",
-    "Ambitious",
+    'Innovative',
+    'Creative',
+    'Visionary',
+    'Inspiring',
+    'Awesome',
+    'Ambitious',
 ];
 
 export default function Home() {
     const [backgroundIndex, setBackgroundIndex] = useState(0);
     const [currentAdjective, setCurrentAdjective] = useState(adjectives[0]);
-    const [displayedText, setDisplayedText] = useState("");
+    const [displayedText, setDisplayedText] = useState('');
     const [isTyping, setIsTyping] = useState(true);
     const [showCursor, setShowCursor] = useState(true);
 
     const backgrounds: BackgroundType[] = [
-        { type: "image", src: "/observation-1.png" },
-        { type: "image", src: "/observation-2.jpg" }
+        { type: 'image', src: '/observation-1.png' },
+        { type: 'image', src: '/observation-2.jpg' }
     ];
 
     // Background rotation timer (every 10 seconds)
@@ -71,7 +71,7 @@ export default function Home() {
 
         const typeText = (text: string) => {
             let i = 0;
-            setDisplayedText("");
+            setDisplayedText('');
             setIsTyping(true);
 
             const type = () => {
@@ -134,10 +134,10 @@ export default function Home() {
             setIsAtTop(window.scrollY === 0);
         };
 
-        window.addEventListener("scroll", handleScroll);
+        window.addEventListener('scroll', handleScroll);
         handleScroll(); // in case we load mid-scroll because users can't behave
 
-        return () => window.removeEventListener("scroll", handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
     return (

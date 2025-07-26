@@ -1,6 +1,6 @@
-"use client";
+'use client';
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from 'react';
 
 interface GameConfig {
   name: string;
@@ -10,13 +10,13 @@ interface GameConfig {
 
 export default function GameLauncher() {
   const gameConfig: GameConfig = {
-    name: "observation",
-    displayName: "Observation",
-    steamUrl: "steam://run/590830//-rungame spoonstuff.observation"
+    name: 'observation',
+    displayName: 'Observation',
+    steamUrl: 'steam://run/590830//-rungame spoonstuff.observation'
   };
-  
-  const gamesLocation: string = "/#games";
-  const [status, setStatus] = useState<"idle" | "launching" | "success" | "error">("idle");
+
+  const gamesLocation: string = '/#games';
+  const [status, setStatus] = useState<'idle' | 'launching' | 'success' | 'error'>('idle');
   const fallbackTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   // Cleanup timeout on unmount
@@ -29,7 +29,7 @@ export default function GameLauncher() {
   }, []);
 
   function launchGame() {
-    setStatus("launching");
+    setStatus('launching');
 
     try {
       // Clear any existing timeout
@@ -42,38 +42,38 @@ export default function GameLauncher() {
 
       // Set up fallback timeout - assume success after a short delay
       fallbackTimeoutRef.current = setTimeout(() => {
-        setStatus("success");
-        
+        setStatus('success');
+
         // Reset to idle after showing success message
         setTimeout(() => {
-          setStatus("idle");
+          setStatus('idle');
         }, 3000);
       }, 1500); // Short delay to show launching state
 
       // Handle visibility change to detect if user switches away (optional enhancement)
       function handleVisibilityChange() {
-        if (document.visibilityState === "hidden") {
+        if (document.visibilityState === 'hidden') {
           if (fallbackTimeoutRef.current) {
             clearTimeout(fallbackTimeoutRef.current);
           }
-          setStatus("success");
-          
+          setStatus('success');
+
           // Reset to idle after game is presumed to have started
           setTimeout(() => {
-            setStatus("idle");
+            setStatus('idle');
           }, 2000);
         }
       }
 
-      document.addEventListener("visibilitychange", handleVisibilityChange, { once: true });
+      document.addEventListener('visibilitychange', handleVisibilityChange, { once: true });
       
     } catch (error) {
-      console.error("Failed to launch game:", error);
-      setStatus("error");
-      
+      console.error('Failed to launch game:', error);
+      setStatus('error');
+
       // Auto-reset error state after 5 seconds
       setTimeout(() => {
-        setStatus("idle");
+        setStatus('idle');
       }, 5000);
     }
   }
@@ -83,25 +83,25 @@ export default function GameLauncher() {
   }
 
   function retryLaunch() {
-    setStatus("idle");
+    setStatus('idle');
   }
 
   const statusConfig = {
     idle: {
-      text: `Click the button below to launch the game.`,
-      color: "text-gray-300"
+      text: 'Click the button below to launch the game.',
+      color: 'text-gray-300'
     },
     launching: {
-      text: "Launching the game...",
-      color: "text-yellow-400"
+      text: 'Launching the game...',
+      color: 'text-yellow-400'
     },
     success: {
-      text: "Game is starting! Check your Steam client.",
-      color: "text-green-400"
+      text: 'Game is starting! Check your Steam client.',
+      color: 'text-green-400'
     },
     error: {
-      text: "Failed to launch the game. Please ensure Steam and S&Box are installed and try again.",
-      color: "text-red-400"
+      text: 'Failed to launch the game. Please ensure Steam and S&Box are installed and try again.',
+      color: 'text-red-400'
     },
   };
 
@@ -138,7 +138,7 @@ export default function GameLauncher() {
         </div>
 
         <div className="space-y-3">
-          {status === "idle" && (
+          {status === 'idle' && (
             <button
               onClick={launchGame}
               className="w-full bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white px-6 py-3 rounded-full text-lg font-semibold transition-all duration-200 shadow-lg hover:shadow-xl transform hover:cursor-pointer"
@@ -147,7 +147,7 @@ export default function GameLauncher() {
             </button>
           )}
 
-          {status === "error" && (
+          {status === 'error' && (
             <button
               onClick={retryLaunch}
               className="w-full bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white px-6 py-3 rounded-full text-lg font-semibold transition-all duration-200 shadow-lg hover:shadow-xl transform hover:cursor-pointer"
@@ -156,7 +156,7 @@ export default function GameLauncher() {
             </button>
           )}
 
-          {(status === "idle" || status === "error") && (
+          {(status === 'idle' || status === 'error') && (
             <button
               onClick={goBackToGames}
               className="w-full bg-gray-700/80 hover:bg-gray-600/80 text-white px-5 py-3 rounded-full text-base font-medium transition-all duration-200 border border-gray-600 hover:border-gray-500 hover:cursor-pointer"
@@ -166,7 +166,7 @@ export default function GameLauncher() {
           )}
         </div>
 
-        {status === "error" && (
+        {status === 'error' && (
           <div className="mt-6 p-4 bg-red-900/20 border border-red-800/30 rounded-xl">
             <h3 className="text-sm font-semibold text-red-300 mb-2">Troubleshooting Tips:</h3>
             <ul className="text-xs text-red-200 space-y-1 text-left">

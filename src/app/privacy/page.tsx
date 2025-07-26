@@ -1,10 +1,10 @@
-import React from "react";
-import Navbar from "@/app/components/navbar";
-import Footer from "@/app/components/footer";
+import React from 'react';
+import Navbar from '@/app/components/navbar';
+import Footer from '@/app/components/footer';
 
 export const metadata = {
-    title: "Privacy Policy",
-    description: "Our privacy policy explains what data we collect, how we use it, and how you can control it across our services."
+    title: 'Privacy Policy',
+    description: 'Our privacy policy explains what data we collect, how we use it, and how you can control it across our services.'
 };
 
 export default function PrivacyPolicy() {

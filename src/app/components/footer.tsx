@@ -1,5 +1,5 @@
-import { OrgName } from "@/constants";
-import Link from "next/link";
+import { OrgName } from '@/constants';
+import Link from 'next/link';
 
 export default function Footer() {
     return (

@@ -1,7 +1,7 @@
-"use client";
+'use client';
 
-import React, { useState, useEffect } from "react";
-import Image from "next/image";
+import React, { useState, useEffect } from 'react';
+import Image from 'next/image';
 import {
     FaPlus,
     FaGithub,
@@ -17,8 +17,8 @@ import {
     FaTwitter,
     FaPatreon,
     FaGlobe
-} from "react-icons/fa";
-import { SiBluesky, SiKofi } from "react-icons/si";
+} from 'react-icons/fa';
+import { SiBluesky, SiKofi } from 'react-icons/si';
 
 type TeamMember = {
     name: string,
@@ -39,21 +39,21 @@ type SocialLink = {
 };
 
 enum SocialMedia {
-    Website = "Website",
-    GitHub = "GitHub",
-    GitLab = "GitLab",
-    YouTube = "YouTube",
-    Twitch = "Twitch",
-    Instagram = "Instagram",
-    TikTok = "TikTok",
-    Reddit = "Reddit",
-    Facebook = "Facebook",
-    LinkedIn = "LinkedIn",
-    Steam = "Steam",
-    Twitter = "Twitter",
-    Bluesky = "Bluesky",
-    Patreon = "Patreon",
-    KoFi = "Ko-Fi",
+    Website = 'Website',
+    GitHub = 'GitHub',
+    GitLab = 'GitLab',
+    YouTube = 'YouTube',
+    Twitch = 'Twitch',
+    Instagram = 'Instagram',
+    TikTok = 'TikTok',
+    Reddit = 'Reddit',
+    Facebook = 'Facebook',
+    LinkedIn = 'LinkedIn',
+    Steam = 'Steam',
+    Twitter = 'Twitter',
+    Bluesky = 'Bluesky',
+    Patreon = 'Patreon',
+    KoFi = 'Ko-Fi',
 }
 
 type SocialMediaIcon = {
@@ -81,81 +81,81 @@ const socialIcons: SocialMediaIcon = {
 
 const teamMembers: TeamMember[] = [
     {
-        name: "kEllie",
-        role: "Founder & Lead Programmer",
-        avatar: "/kEllieDev.jpg",
+        name: 'kEllie',
+        role: 'Founder & Lead Programmer',
+        avatar: '/kEllieDev.jpg',
         socialLinks: [
-            { media: SocialMedia.GitHub, url: "https://github.com/kEllieDev" },
-            { media: SocialMedia.Bluesky, url: "https://bsky.app/profile/kelliedev.bsky.social" },
-            { media: SocialMedia.Twitch, url: "https://twitch.tv/kelliedev" },
-            { media: SocialMedia.KoFi, url: "https://ko-fi.com/kelliedev" },
+            { media: SocialMedia.GitHub, url: 'https://github.com/kEllieDev' },
+            { media: SocialMedia.Bluesky, url: 'https://bsky.app/profile/kelliedev.bsky.social' },
+            { media: SocialMedia.Twitch, url: 'https://twitch.tv/kelliedev' },
+            { media: SocialMedia.KoFi, url: 'https://ko-fi.com/kelliedev' },
         ],
         messages: [
-            { message: "It feels like I'm in a dream!", weight: 1 },
-            { message: "Go play <a style='border-bottom: 1px solid black;' href='https://store.steampowered.com/app/1973530/Limbus_Company/' target='_blank' rel='noopener noreferrer'>Limbus Company!</a> It's peak fiction!", weight: 0.2 },
-            { message: "Beep Boop!", weight: 1 },
-            { message: "99% of gamblers quit right before they make it big!", weight: 1 },
-            { message: "Sometimes, I dream about cheese.", weight: 1 }
+            { message: 'It feels like I\'m in a dream!', weight: 1 },
+            { message: 'Go play <a style=\'border-bottom: 1px solid black;\' href=\'https://store.steampowered.com/app/1973530/Limbus_Company/\' target=\'_blank\' rel=\'noopener noreferrer\'>Limbus Company!</a> It\'s peak fiction!', weight: 0.2 },
+            { message: 'Beep Boop!', weight: 1 },
+            { message: '99% of gamblers quit right before they make it big!', weight: 1 },
+            { message: 'Sometimes, I dream about cheese.', weight: 1 }
         ]
     },
     {
-        name: "Alex Downer",
-        role: "Programmer, Game Designer, Mathematician",
-        avatar: "/AlexDowner.png",
+        name: 'Alex Downer',
+        role: 'Programmer, Game Designer, Mathematician',
+        avatar: '/AlexDowner.png',
         socialLinks: [],
         messages: [
-            { message: "Stop clicking me!", weight: 1 },
-            { message: "What year is it again?", weight: 1 },
-            { message: "Programmer is lingo for dark arts user", weight: 1 },
-            { message: "Cringe is best", weight: 1 },
-            { message: "42! Of course!", weight: 1 },
-            { message: "<- I help this one with their math homework", weight: 1 },
-            { message: "Where am I?!", weight: 1 },
-            { message: "Congrats, you've got malware now!", weight: 1 },
-            { message: "They made me do this...", weight: 1 }
+            { message: 'Stop clicking me!', weight: 1 },
+            { message: 'What year is it again?', weight: 1 },
+            { message: 'Programmer is lingo for dark arts user', weight: 1 },
+            { message: 'Cringe is best', weight: 1 },
+            { message: '42! Of course!', weight: 1 },
+            { message: '<- I help this one with their math homework', weight: 1 },
+            { message: 'Where am I?!', weight: 1 },
+            { message: 'Congrats, you\'ve got malware now!', weight: 1 },
+            { message: 'They made me do this...', weight: 1 }
         ]
     },
     {
-        name: "AWildErin",
-        role: "Programmer",
-        avatar: "/AWildErin.gif",
+        name: 'AWildErin',
+        role: 'Programmer',
+        avatar: '/AWildErin.gif',
         socialLinks: [],
         messages: []
     },
     {
-        name: "Dutchy42",
-        role: "Programmer",
-        avatar: "/Dutchy42.png",
+        name: 'Dutchy42',
+        role: 'Programmer',
+        avatar: '/Dutchy42.png',
         socialLinks: [],
         messages: []
     },
     {
-        name: "SharpMars",
-        role: "Programmer",
-        avatar: "/pumpkin_mars.png",
+        name: 'SharpMars',
+        role: 'Programmer',
+        avatar: '/pumpkin_mars.png',
         socialLinks: [],
         messages: []
     },
     {
-        name: "Tameranian",
-        role: "3D Artist",
-        avatar: "/Tameranian.jpg",
+        name: 'Tameranian',
+        role: '3D Artist',
+        avatar: '/Tameranian.jpg',
         socialLinks: [],
         messages: []
     },
     {
-        name: "Yumeko",
-        role: "Concept Artist, UI/UX Designer",
-        avatar: "/Yumeko.png",
+        name: 'Yumeko',
+        role: 'Concept Artist, UI/UX Designer',
+        avatar: '/Yumeko.png',
         socialLinks: [],
         messages: [
-            { message: "You clicked.", weight: 1 },
-            { message: "Try clicking again.", weight: 1 },
-            { message: "Click another time.", weight: 1 },
-            { message: "At 100 clicks something magical might happen!", weight: 1 },
-            { message: "Click just one more time...", weight: 1 },
-            { message: "Click again!", weight: 1 },
-            { message: "One more click!", weight: 1 },
+            { message: 'You clicked.', weight: 1 },
+            { message: 'Try clicking again.', weight: 1 },
+            { message: 'Click another time.', weight: 1 },
+            { message: 'At 100 clicks something magical might happen!', weight: 1 },
+            { message: 'Click just one more time...', weight: 1 },
+            { message: 'Click again!', weight: 1 },
+            { message: 'One more click!', weight: 1 },
         ]
     }
 ];
@@ -173,7 +173,7 @@ type BubbleMessage = {
 function selectWeightedMessage(messages: { message: string, weight: number }[]): string {
     // If there are no messages, return a default one
     if (messages.length === 0) {
-        return "Hello!";
+        return 'Hello!';
     }
 
     const totalWeight = messages.reduce((sum, msg) => sum + msg.weight, 0);

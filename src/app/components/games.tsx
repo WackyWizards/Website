@@ -1,8 +1,8 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import { FaChevronCircleLeft, FaChevronCircleRight } from "react-icons/fa";
-import { games } from "@/games";
+import { useState } from 'react';
+import { FaChevronCircleLeft, FaChevronCircleRight } from 'react-icons/fa';
+import { games } from '@/games';
 
 export default function Games() {
     const [currentGameIndex, setCurrentGameIndex] = useState(0);

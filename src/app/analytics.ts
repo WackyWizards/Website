@@ -1,9 +1,9 @@
-"use client";
+'use client';
 
-import { useEffect } from "react";
-import { usePathname, useSearchParams } from "next/navigation";
-import * as gtag from "@/lib/gtag";
-import { GTag } from "@/constants";
+import { useEffect } from 'react';
+import { usePathname, useSearchParams } from 'next/navigation';
+import * as gtag from '@/lib/gtag';
+import { GTag } from '@/constants';
 
 declare global {
     interface Window {
@@ -20,7 +20,7 @@ export default function Analytics() {
         console.log('Loading Google Analytics...');
         
         // Don't load if already loaded
-        if (typeof window.gtag === "function" && window.gtagReady) {
+        if (typeof window.gtag === 'function' && window.gtagReady) {
             console.log('Google Analytics already loaded');
             return;
         }
@@ -73,7 +73,7 @@ export default function Analytics() {
         // Function to track page view
         const trackPageView = () => {
             if (!searchParams) {
-                console.error("Search parameters are not available for analytics");
+                console.error('Search parameters are not available for analytics');
                 return;
             }
             
@@ -82,7 +82,7 @@ export default function Analytics() {
             gtag.pageview(url);
         };
 
-        if (typeof window.gtag === "function" && window.gtagReady) {
+        if (typeof window.gtag === 'function' && window.gtagReady) {
             console.log('Google Analytics ready, tracking page view immediately');
             trackPageView();
         } else {
@@ -90,7 +90,7 @@ export default function Analytics() {
             
             // Wait for gtag to be ready
             const checkGtag = setInterval(() => {
-                if (typeof window.gtag === "function" && window.gtagReady) {
+                if (typeof window.gtag === 'function' && window.gtagReady) {
                     console.log('Google Analytics is now ready, tracking page view');
                     clearInterval(checkGtag);
                     trackPageView();

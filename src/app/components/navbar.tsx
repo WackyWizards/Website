@@ -1,17 +1,17 @@
-"use client";
+'use client';
 
-import { OrgName } from "@/constants";
-import { useState } from "react";
-import { FiMenu, FiX } from "react-icons/fi";
-import { FaHome, FaGamepad } from "react-icons/fa";
-import { LuUsers } from "react-icons/lu";
+import { OrgName } from '@/constants';
+import { useState } from 'react';
+import { FiMenu, FiX } from 'react-icons/fi';
+import { FaHome, FaGamepad } from 'react-icons/fa';
+import { LuUsers } from 'react-icons/lu';
 
 export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
 
     function scrollToSection(sectionId: string) {
-        if (location.pathname !== "/") {
-            location.href = "/#" + sectionId;
+        if (location.pathname !== '/') {
+            location.href = '/#' + sectionId;
         }
 
         setIsOpen(false);
