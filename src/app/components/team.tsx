@@ -259,6 +259,7 @@ export default function Team() {
                                     fill
                                     sizes="(max-width: 640px) 80px, (max-width: 1024px) 96px, 128px"
                                     className="object-cover hover:scale-105 transition-transform duration-300"
+                                    unoptimized={member.avatar.endsWith('.gif')}
                                 />
 
                             </div>
