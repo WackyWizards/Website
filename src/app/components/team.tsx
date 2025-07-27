@@ -85,17 +85,20 @@ const teamMembers: TeamMember[] = [
         role: 'Founder & Lead Programmer',
         avatar: '/kEllieDev.jpg',
         socialLinks: [
-            { media: SocialMedia.GitHub, url: 'https://github.com/kEllieDev' },
             { media: SocialMedia.Bluesky, url: 'https://bsky.app/profile/kelliedev.bsky.social' },
+            { media: SocialMedia.GitHub, url: 'https://github.com/kelliedev' },
+            { media: SocialMedia.Reddit, url: 'https://reddit.com/u/kelliedev' },
+            { media: SocialMedia.Steam, url: 'https://steamcommunity.com/id/kelliedev/' },
             { media: SocialMedia.Twitch, url: 'https://twitch.tv/kelliedev' },
+            { media: SocialMedia.YouTube, url: 'https://youtube.com/@kelliedev' },
             { media: SocialMedia.KoFi, url: 'https://ko-fi.com/kelliedev' },
         ],
         messages: [
             { message: 'It feels like I\'m in a dream!', weight: 1 },
-            { message: 'Go play <a style=\'border-bottom: 1px solid black;\' href=\'https://store.steampowered.com/app/1973530/Limbus_Company/\' target=\'_blank\' rel=\'noopener noreferrer\'>Limbus Company!</a> It\'s peak fiction!', weight: 0.2 },
             { message: 'Beep Boop!', weight: 1 },
             { message: '99% of gamblers quit right before they make it big!', weight: 1 },
-            { message: 'Sometimes, I dream about cheese.', weight: 1 }
+            { message: 'Sometimes, I dream about cheese.', weight: 1 },
+            { message: 'Go play <a style="border-bottom: 1px solid black;" href="https://store.steampowered.com/app/1973530/Limbus_Company/" target="_blank" rel="noopener noreferrer">Limbus Company!</a> It\'s peak fiction!', weight: 0.2 }
         ]
     },
     {
