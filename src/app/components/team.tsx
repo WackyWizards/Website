@@ -234,7 +234,7 @@ export default function Team() {
                 </div>
 
                 {/* Team Grid */}
-                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
+                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6 sm:gap-6 lg:gap-8 max-w-6xl mx-auto">
                     {teamMembers.map((member) => (
                         <div key={member.name} className="flex flex-col items-center text-center relative">
                             {/* Speech Bubble */}
@@ -276,7 +276,7 @@ export default function Team() {
 
                             {/* Social Links */}
                             {member.socialLinks && member.socialLinks.length > 0 && (
-                                <div className="flex gap-2">
+                                <div className="flex justify-center flex-wrap max-w-[145px] gap-1 w-fit mx-auto">
                                     {member.socialLinks.map((link, index) => {
                                         const IconComponent = socialIcons[link.media] || FaGlobe;
                                         return (
