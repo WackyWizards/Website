@@ -24,6 +24,7 @@ type TeamMember = {
     name: string,
     role: string,
     avatar: string,
+    country?: string, // Country code (ISO 3166-1 alpha-2)
     socialLinks?: SocialLink[],
     messages: Message[]
 }
@@ -79,11 +80,25 @@ const socialIcons: SocialMediaIcon = {
     [SocialMedia.KoFi]: SiKofi,
 };
 
+/**
+ * Return an emoji representation of the country code.
+ * @param countryCode Country code for the emoji
+ * @returns Emoji representing the provided country
+ */
+const getFlagEmoji = (countryCode: string): string => {
+    const codePoints = countryCode
+        .toUpperCase()
+        .split('')
+        .map(char => 127397 + char.charCodeAt(0));
+    return String.fromCodePoint(...codePoints);
+};
+
 const teamMembers: TeamMember[] = [
     {
         name: 'kEllie',
         role: 'Founder & Lead Programmer',
         avatar: '/kEllieDev.jpg',
+        country: 'FI',
         socialLinks: [
             { media: SocialMedia.Bluesky, url: 'https://bsky.app/profile/kelliedev.bsky.social' },
             { media: SocialMedia.GitHub, url: 'https://github.com/kelliedev' },
@@ -105,6 +120,7 @@ const teamMembers: TeamMember[] = [
         name: 'Alex Downer',
         role: 'Programmer, Game Designer, Mathematician',
         avatar: '/AlexDowner.png',
+        country: 'US',
         socialLinks: [],
         messages: [
             { message: 'Stop clicking me!', weight: 1 },
@@ -122,6 +138,7 @@ const teamMembers: TeamMember[] = [
         name: 'AWildErin',
         role: 'Programmer',
         avatar: '/AWildErin.gif',
+        country: 'GB',
         socialLinks: [],
         messages: []
     },
@@ -129,6 +146,7 @@ const teamMembers: TeamMember[] = [
         name: 'Dutchy42',
         role: 'Programmer',
         avatar: '/Dutchy42.png',
+        country: 'NL',
         socialLinks: [],
         messages: []
     },
@@ -136,6 +154,7 @@ const teamMembers: TeamMember[] = [
         name: 'SharpMars',
         role: 'Programmer',
         avatar: '/pumpkin_mars.png',
+        country: "pl",
         socialLinks: [],
         messages: []
     },
@@ -143,6 +162,7 @@ const teamMembers: TeamMember[] = [
         name: 'Tameranian',
         role: '3D Artist',
         avatar: '/Tameranian.jpg',
+        country: "US",
         socialLinks: [],
         messages: []
     },
@@ -248,20 +268,32 @@ export default function Team() {
                                 </div>
                             )}
 
-                            {/* Avatar */}
-                            <div
-                                className="w-20 h-20 sm:w-24 sm:h-24 lg:w-32 lg:h-32 rounded-full bg-gray-700 overflow-hidden mb-3 sm:mb-4 relative ring-3 ring-gray-800 hover:ring-blue-500 transition-all duration-400 cursor-pointer"
-                                onClick={() => handleMemberClick(member)}
-                            >
-                                <Image
-                                    src={member.avatar}
-                                    alt={member.name}
-                                    fill
-                                    sizes="(max-width: 640px) 80px, (max-width: 1024px) 96px, 128px"
-                                    className="object-cover hover:scale-105 transition-transform duration-300"
-                                    unoptimized={member.avatar.endsWith('.gif')}
-                                />
+                            {/* Avatar Container */}
+                            <div className="relative mb-3 sm:mb-4">
+                                {/* Avatar */}
+                                <div
+                                    className="w-20 h-20 sm:w-24 sm:h-24 lg:w-32 lg:h-32 rounded-full bg-gray-700 overflow-hidden relative ring-3 ring-gray-800 hover:ring-blue-500 transition-all duration-400 cursor-pointer"
+                                    onClick={() => handleMemberClick(member)}
+                                >
+                                    <Image
+                                        src={member.avatar}
+                                        alt={member.name}
+                                        fill
+                                        sizes="(max-width: 640px) 80px, (max-width: 1024px) 96px, 128px"
+                                        className="object-cover hover:scale-105 transition-transform duration-300"
+                                        unoptimized={member.avatar.endsWith('.gif')}
+                                    />
+                                </div>
 
+                                {/* Country Flag */}
+                                {member.country && (
+                                    <div 
+                                        className="absolute -top-1 -right-1 w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8 bg-gray-900 rounded-full flex items-center justify-center shadow-lg border-2 border-gray-800 text-xs sm:text-sm lg:text-base z-10"
+                                        title={`From ${member.country}`}
+                                    >
+                                        {getFlagEmoji(member.country)}
+                                    </div>
+                                )}
                             </div>
 
                             {/* Name */}
