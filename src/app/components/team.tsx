@@ -93,6 +93,14 @@ const getFlagEmoji = (countryCode: string): string => {
     return String.fromCodePoint(...codePoints);
 };
 
+const countryNames: Record<string, string> = {
+    FI: "Finland",
+    US: "United States",
+    GB: "United Kingdom",
+    NL: "Netherlands",
+    PL: "Poland"
+};
+
 const teamMembers: TeamMember[] = [
     {
         name: 'kEllie',
@@ -289,7 +297,7 @@ export default function Team() {
                                 {member.country && (
                                     <div 
                                         className="absolute -top-1 -right-1 w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8 bg-gray-900 rounded-full flex items-center justify-center shadow-lg border-2 border-gray-800 text-xs sm:text-sm lg:text-base z-10"
-                                        title={`From ${member.country}`}
+                                        title={countryNames[member.country.toUpperCase()] || member.country}
                                     >
                                         {getFlagEmoji(member.country)}
                                     </div>
