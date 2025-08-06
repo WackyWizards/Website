@@ -258,7 +258,7 @@ export default function Team() {
                 {/* Header */}
                 <div className="text-center mb-8 sm:mb-10 lg:mb-12">
                     <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-2 sm:mb-4">Our Team</h2>
-                    <p className="text-base sm:text-lg text-gray-400">Meet the crew!</p>
+                    <p className="text-base sm:text-lg text-gray-400">We are a global team who <b>loves</b> what we do.</p>
                 </div>
 
                 {/* Team Grid */}
