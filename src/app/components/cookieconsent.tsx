@@ -109,7 +109,7 @@ export default function CookieConsentBanner() {
                         <div className="flex-1">
                             <p className="text-sm">
                                 We use cookies to improve your experience and analyze site usage. 
-                                <a href="/privacy" className="underline text-blue-400 hover:text-blue-300 ml-1">
+                                <a href="/privacy" className="underline text-blue-400 hover:text-blue-300 ml-1 cursor-pointer">
                                     Learn more
                                 </a>
                             </p>
@@ -117,19 +117,19 @@ export default function CookieConsentBanner() {
                         <div className="flex flex-wrap gap-2 justify-end">
                             <button
                                 onClick={() => setShowDetails(true)}
-                                className="bg-gray-600 text-white px-4 py-2 text-sm rounded hover:bg-gray-500 transition duration-200"
+                                className="bg-gray-600 text-white px-4 py-2 text-sm rounded hover:bg-gray-500 transition duration-200 cursor-pointer"
                             >
                                 Customize
                             </button>
                             <button
                                 onClick={handleRejectAll}
-                                className="bg-gray-600 text-white px-4 py-2 text-sm rounded hover:bg-gray-500 transition duration-200"
+                                className="bg-gray-600 text-white px-4 py-2 text-sm rounded hover:bg-gray-500 transition duration-200 cursor-pointer"
                             >
                                 Reject All
                             </button>
                             <button
                                 onClick={handleAcceptAll}
-                                className="bg-blue-600 text-white px-4 py-2 text-sm rounded hover:bg-blue-500 transition duration-200"
+                                className="bg-blue-600 text-white px-4 py-2 text-sm rounded hover:bg-blue-500 transition duration-200 cursor-pointer"
                             >
                                 Accept All
                             </button>
@@ -142,7 +142,7 @@ export default function CookieConsentBanner() {
                             <h3 className="text-lg font-semibold">Cookie Preferences</h3>
                             <button
                                 onClick={() => setShowDetails(false)}
-                                className="text-gray-400 hover:text-white text-xl"
+                                className="text-gray-400 hover:text-white text-xl cursor-pointer"
                             >
                                 ×
                             </button>
@@ -182,7 +182,7 @@ export default function CookieConsentBanner() {
                                             preferences.analytics 
                                                 ? 'bg-blue-600 justify-end' 
                                                 : 'bg-gray-600 justify-start'
-                                        } px-1`}
+                                        } px-1 cursor-pointer`}
                                     >
                                         <div className="w-4 h-4 bg-white rounded-full"></div>
                                     </button>
@@ -193,19 +193,19 @@ export default function CookieConsentBanner() {
                         <div className="flex flex-wrap gap-2 justify-end pt-2">
                             <button
                                 onClick={handleRejectAll}
-                                className="bg-gray-600 text-white px-4 py-2 text-sm rounded hover:bg-gray-500 transition duration-200"
+                                className="bg-gray-600 text-white px-4 py-2 text-sm rounded hover:bg-gray-500 transition duration-200 cursor-pointer"
                             >
                                 Reject All
                             </button>
                             <button
                                 onClick={handleAcceptSelected}
-                                className="bg-blue-600 text-white px-4 py-2 text-sm rounded hover:bg-blue-500 transition duration-200"
+                                className="bg-blue-600 text-white px-4 py-2 text-sm rounded hover:bg-blue-500 transition duration-200 cursor-pointer"
                             >
                                 Accept Selected
                             </button>
                             <button
                                 onClick={handleAcceptAll}
-                                className="bg-blue-600 text-white px-4 py-2 text-sm rounded hover:bg-blue-500 transition duration-200"
+                                className="bg-blue-600 text-white px-4 py-2 text-sm rounded hover:bg-blue-500 transition duration-200 cursor-pointer"
                             >
                                 Accept All
                             </button>
