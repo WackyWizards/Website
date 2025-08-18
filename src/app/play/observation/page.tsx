@@ -12,7 +12,7 @@ export default function GameLauncher() {
   const gameConfig: GameConfig = {
     name: 'observation',
     displayName: 'Observation',
-    steamUrl: 'steam://run/590830//-rungame spoonstuff.observation'
+    steamUrl: 'steam://run/590830//-rungame spoonstuff.observation',
   };
 
   const gamesLocation: string = '/#games';
@@ -66,7 +66,6 @@ export default function GameLauncher() {
       }
 
       document.addEventListener('visibilitychange', handleVisibilityChange, { once: true });
-      
     } catch (error) {
       console.error('Failed to launch game:', error);
       setStatus('error');
@@ -89,19 +88,19 @@ export default function GameLauncher() {
   const statusConfig = {
     idle: {
       text: 'Click the button below to launch the game.',
-      color: 'text-gray-300'
+      color: 'text-gray-300',
     },
     launching: {
       text: 'Launching the game...',
-      color: 'text-yellow-400'
+      color: 'text-yellow-400',
     },
     success: {
       text: 'Game is starting! Check your Steam client.',
-      color: 'text-green-400'
+      color: 'text-green-400',
     },
     error: {
       text: 'Failed to launch the game. Please ensure Steam and S&Box are installed and try again.',
-      color: 'text-red-400'
+      color: 'text-red-400',
     },
   };
 
@@ -110,27 +109,32 @@ export default function GameLauncher() {
   return (
     <div className="flex items-center justify-center min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white px-4">
       <div className="flex flex-col text-center max-w-lg w-full bg-gray-950/90 backdrop-blur-lg rounded-3xl p-8 shadow-2xl border border-gray-700/50">
-        
         <h1 className="text-4xl font-bold mb-2 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
           Game Launcher
         </h1>
-        
-        <h2 className="text-xl text-gray-400 mb-8 capitalize">
-          {gameConfig.displayName}
-        </h2>
-        
+
+        <h2 className="text-xl text-gray-400 mb-8 capitalize">{gameConfig.displayName}</h2>
+
         <div className="mb-8">
-          <p className={`text-lg font-medium ${currentStatus.color} transition-colors duration-300`}>
+          <p
+            className={`text-lg font-medium ${currentStatus.color} transition-colors duration-300`}
+          >
             {currentStatus.text}
           </p>
-          
-          {status === "launching" && (
+
+          {status === 'launching' && (
             <div className="mt-4">
               <div className="animate-pulse flex justify-center">
                 <div className="flex space-x-1">
                   <div className="w-2 h-2 bg-yellow-400 rounded-full animate-bounce"></div>
-                  <div className="w-2 h-2 bg-yellow-400 rounded-full animate-bounce" style={{animationDelay: '0.1s'}}></div>
-                  <div className="w-2 h-2 bg-yellow-400 rounded-full animate-bounce" style={{animationDelay: '0.2s'}}></div>
+                  <div
+                    className="w-2 h-2 bg-yellow-400 rounded-full animate-bounce"
+                    style={{ animationDelay: '0.1s' }}
+                  ></div>
+                  <div
+                    className="w-2 h-2 bg-yellow-400 rounded-full animate-bounce"
+                    style={{ animationDelay: '0.2s' }}
+                  ></div>
                 </div>
               </div>
             </div>
