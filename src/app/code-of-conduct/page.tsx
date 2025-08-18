@@ -1,8 +1,9 @@
 import React from 'react';
 import Navbar from '@/app/components/navbar';
 import Footer from '@/app/components/footer';
+import type { Metadata } from 'next';
 
-export const metadata = {
+export const metadata: Metadata = {
   title: 'Code Of Conduct',
   description: 'Read our community code of conduct!',
 };
