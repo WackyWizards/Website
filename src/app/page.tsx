@@ -178,7 +178,7 @@ export default function Home() {
       <div className="relative z-10 grid grid-rows-[auto_auto_auto_auto] font-[family-name:var(--font-geist-sans)]">
         <section
           id="home"
-          className="min-h-screen flex items-center justify-center px-4 py-8 sm:px-8 sm:py-20"
+          className="relative min-h-screen flex items-center justify-center px-4 py-8 sm:px-8 sm:py-20"
         >
           <main className="flex flex-col gap-6 items-center text-center max-w-4xl w-full">
             <div className="flex gap-2 items-center flex-col">
@@ -217,9 +217,10 @@ export default function Home() {
 
           {/* Scroll indicator */}
           <div
-            className={`absolute bottom-510 text-5xl text-white ${
-              isAtTop ? 'opacity-100 animate-bounce' : 'opacity-0 pointer-events-none'
-            } transition-opacity duration-700 `}
+            className={`absolute bottom-24 left-1/2 -translate-x-1/2 text-5xl text-white
+    hidden sm:block
+    ${isAtTop ? 'opacity-100 animate-bounce' : 'opacity-0 pointer-events-none'}
+    transition-opacity duration-400`}
           >
             ▼
           </div>
