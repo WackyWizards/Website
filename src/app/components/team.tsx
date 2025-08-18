@@ -263,12 +263,12 @@ export default function Team() {
     >
       <div className="max-w-7xl w-full">
         {/* Header */}
-        <div className="text-center mb-8 sm:mb-10 lg:mb-12">
+        <header className="text-center mb-8 sm:mb-10 lg:mb-12">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-2 sm:mb-4">Our Team</h2>
           <p className="text-base sm:text-lg text-gray-400">
             We are a global team who <b>loves</b> what we do.
           </p>
-        </div>
+        </header>
 
         {/* Team Grid */}
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6 sm:gap-6 lg:gap-8 max-w-6xl mx-auto">
