@@ -1,6 +1,4 @@
 import React from 'react';
-import Navbar from '@/app/components/navbar';
-import Footer from '@/app/components/footer';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
