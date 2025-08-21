@@ -142,8 +142,6 @@ export default function Home() {
 
   return (
     <div className="relative h-full min-h-screen overflow-hidden">
-      <Navbar />
-
       {/* Background */}
       <div className="fixed inset-0 z-[-2]">
         {backgrounds.map((bg, idx) => (
@@ -229,8 +227,6 @@ export default function Home() {
         <Games />
         <Team />
       </div>
-
-      <Footer />
     </div>
   );
 }
