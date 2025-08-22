@@ -3,8 +3,9 @@
 import { OrgName } from '@/constants';
 import { useState } from 'react';
 import { FiMenu, FiX } from 'react-icons/fi';
-import { FaHome, FaGamepad } from 'react-icons/fa';
+import { FaHome, FaGamepad, FaNewspaper } from 'react-icons/fa';
 import { LuUsers } from 'react-icons/lu';
+import { redirect } from 'next/navigation';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -60,6 +61,13 @@ export default function Navbar() {
               >
                 <p className="w-full">Team</p>
                 <LuUsers className="text-gray-400" size={24} />
+              </div>
+              <div
+                onClick={() => redirect('/news')}
+                className="flex p-1  w-full hover:border-left hover:text-gray-400 cursor-pointer"
+              >
+                <p className="w-full">News</p>
+                <FaNewspaper className="text-gray-400" size={24} />
               </div>
             </div>
           </div>
