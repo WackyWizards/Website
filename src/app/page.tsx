@@ -2,8 +2,6 @@
 
 import { useEffect, useState } from 'react';
 
-import Navbar from '@/app/components/navbar';
-import Footer from '@/app/components/footer';
 import Games from '@/app/components/games';
 import Team from '@/app/components/team';
 
