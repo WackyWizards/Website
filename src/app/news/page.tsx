@@ -11,7 +11,7 @@ export default async function NewsPage() {
   const posts = await getAllNewsPosts();
 
   return (
-    <main className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 py-16">
+    <main className="min-h-screen bg-gray-900 py-16">
       <div className="relative mx-auto max-w-4xl px-6 md:px-10 pt-6 md:pt-10">
         <header className="mb-12 text-center border-b border-white/10 pb-8">
           <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent mb-4">

@@ -71,7 +71,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
   }
 
   return (
-    <main className="mx-auto min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 py-16">
+    <main className="mx-auto min-h-screen bg-gray-900 py-16">
       <article className="relative mx-auto max-w-4xl px-6 md:px-10 pt-6 md:pt-10">
         <header className="mb-8">
           <div className="flex items-center space-x-4">
