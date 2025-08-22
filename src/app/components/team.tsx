@@ -104,18 +104,10 @@ const countryNames: Record<string, string> = {
 const teamMembers: TeamMember[] = [
   {
     name: 'kEllie',
-    role: 'Founder & Lead Programmer',
+    role: 'Founder, Lead Programmer',
     avatar: '/kEllieDev.jpg',
     country: 'FI',
-    socialLinks: [
-      { media: SocialMedia.Bluesky, url: 'https://bsky.app/profile/kelliedev.bsky.social' },
-      { media: SocialMedia.GitHub, url: 'https://github.com/kelliedev' },
-      { media: SocialMedia.Reddit, url: 'https://reddit.com/u/kelliedev' },
-      { media: SocialMedia.Steam, url: 'https://steamcommunity.com/id/kelliedev/' },
-      { media: SocialMedia.Twitch, url: 'https://twitch.tv/kelliedev' },
-      { media: SocialMedia.YouTube, url: 'https://youtube.com/@kelliedev' },
-      { media: SocialMedia.KoFi, url: 'https://ko-fi.com/kelliedev' },
-    ],
+    socialLinks: [],
     messages: [
       { message: "It feels like I'm in a dream!", weight: 1 },
       { message: 'Beep Boop!', weight: 1 },
@@ -130,7 +122,7 @@ const teamMembers: TeamMember[] = [
   },
   {
     name: 'Alex Downer',
-    role: 'Programmer, Game Designer, Mathematician',
+    role: 'Programmer, Designer, Mathematician',
     avatar: '/AlexDowner.png',
     country: 'US',
     socialLinks: [],
@@ -166,7 +158,7 @@ const teamMembers: TeamMember[] = [
     name: 'SharpMars',
     role: 'Programmer',
     avatar: '/pumpkin_mars.png',
-    country: 'pl',
+    country: 'PL',
     socialLinks: [],
     messages: [],
   },
@@ -305,7 +297,7 @@ export default function Team() {
                 {/* Country Flag */}
                 {member.country && (
                   <div
-                    className="absolute -top-1 -right-1 w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8 bg-gray-900 rounded-full flex items-center justify-center shadow-lg border-2 border-gray-800 text-xs sm:text-sm lg:text-base z-10"
+                    className="absolute -top-1 -right-1 w-7 h-7 sm:w-8 sm:h-8 lg:w-8 lg:h-8 bg-gray-900 rounded-full flex items-center justify-center shadow-lg border-2 border-gray-800 text-xs sm:text-sm lg:text-base z-10"
                     title={countryNames[member.country.toUpperCase()] || member.country}
                   >
                     {getFlagEmoji(member.country)}
