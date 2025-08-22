@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 
 export default function CodeOfConduct() {
   return (
-    <main className="min-h-screen bg-white py-16">
+    <main className="min-h-screen bg-gray-900 py-16">
       <div className="mx-auto px-6 md:px-10 pt-6 md:pt-10 text-black">
         <header className="mb-8 border-b border-gray-200 pb-6">
           <h1 className="text-3xl md:text-4xl font-semibold text-gray-800">Code Of Conduct</h1>
