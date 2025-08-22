@@ -1,0 +1,57 @@
+import React from 'react';
+import Link from 'next/link';
+import { getAllNewsPosts } from '@/lib/markdown';
+
+export const metadata = {
+  title: 'News',
+  description: 'Stay updated with the latest news',
+};
+
+export default async function NewsPage() {
+  const posts = await getAllNewsPosts();
+
+  return (
+    <main className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 py-16">
+      <div className="relative mx-auto max-w-4xl px-6 md:px-10 pt-6 md:pt-10">
+        <header className="mb-12 text-center border-b border-white/10 pb-8">
+          <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent mb-4">
+            Latest News
+          </h1>
+          <p className="text-gray-400">Hear about our latest updates and announcements.</p>
+        </header>
+
+        <section id="latest-news">
+          {posts.length === 0 ? (
+            <div className="text-center py-12">
+              <p className="text-gray-500 text-2xl mb-4">No news articles found.</p>
+              <p className="text-gray-400 text-lg">Check back later for updates!</p>
+            </div>
+          ) : (
+            <div className="space-y-6">
+              {posts.map((post) => (
+                <article key={post.id} className="border-b border-gray-200 pb-6 last:border-b-0">
+                  <Link
+                    href={`/news/${post.id}`}
+                    className="block bg-gray-800 hover:bg-gray-700 p-4 rounded-lg transition-colors"
+                  >
+                    <h2 className="text-2xl font-semibold mb-2 text-blue-600">{post.title}</h2>
+                    <time dateTime={post.date} className="text-sm text-gray-500 mb-3 block">
+                      {new Date(post.date).toLocaleDateString('en-UK', {
+                        year: 'numeric',
+                        month: 'long',
+                        day: 'numeric',
+                      })}
+                    </time>
+                    {post.excerpt && (
+                      <p className="text-gray-400 leading-relaxed">{post.excerpt}</p>
+                    )}
+                  </Link>
+                </article>
+              ))}
+            </div>
+          )}
+        </section>
+      </div>
+    </main>
+  );
+}
