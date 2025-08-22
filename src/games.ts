@@ -1,11 +1,13 @@
-type Game = {
+export type Game = {
   title: string;
   description: string;
+  launcherUri?: string;
   launchUri?: string;
-  images: Image[];
+  link?: string;
+  images: GameImage[];
 };
 
-type Image = {
+export type GameImage = {
   src: string;
   alt: string;
 };
@@ -15,7 +17,9 @@ export const games: Game[] = [
     title: 'Observation',
     description:
       "Work for a mysterious company, observe security cameras, report anomalies.\nInspired by I'm on Observation Duty.",
-    launchUri: '/play/observation',
+    launcherUri: '/play/observation',
+    launchUri: 'steam://run/590830//-rungame spoonstuff.observation',
+    link: 'https://sbox.game/spoonstuff/observation',
     images: [
       {
         src: '/observation-1.png',

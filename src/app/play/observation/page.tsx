@@ -1,23 +1,20 @@
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
-
-interface GameConfig {
-  name: string;
-  displayName: string;
-  steamUrl: string;
-}
+import { usePathname } from 'next/navigation';
+import { games, Game } from '@/games';
 
 export default function GameLauncher() {
-  const gameConfig: GameConfig = {
-    name: 'observation',
-    displayName: 'Observation',
-    steamUrl: 'steam://run/590830//-rungame spoonstuff.observation',
-  };
-
-  const gamesLocation: string = '/#games';
+  const pathname = usePathname();
   const [status, setStatus] = useState<'idle' | 'launching' | 'success' | 'error'>('idle');
   const fallbackTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+  // Automatically find the game based on the current route
+  const game: Game | undefined = games.find(g => {
+    // Extract game name from pathname (e.g., /play/observation -> observation)
+    const gameNameFromPath = pathname.split('/').pop()?.toLowerCase();
+    return g.title.toLowerCase() === gameNameFromPath;
+  });
 
   // Cleanup timeout on unmount
   useEffect(() => {
@@ -28,7 +25,36 @@ export default function GameLauncher() {
     };
   }, []);
 
+  // Handle case where game is not found
+  if (!game) {
+    return (
+      <main className="flex items-center justify-center min-h-screen bg-gray-900 text-white px-4">
+        <div className="flex flex-col text-center max-w-lg w-full bg-gray-950/90 backdrop-blur-lg rounded-3xl p-8 shadow-2xl border border-gray-700/50">
+          <h1 className="text-4xl font-bold mb-2 text-white">Game Not Found</h1>
+          <p className="text-gray-400 mb-8">
+            Could not find a game matching the current route: {pathname}
+          </p>
+          <button
+            onClick={() => window.location.href = '/#games'}
+            className="w-full bg-gray-700/80 hover:bg-gray-600/80 text-white px-5 py-3 rounded-full text-base font-medium transition-all duration-200 border border-gray-600 hover:border-gray-500 hover:cursor-pointer"
+          >
+            ← Back to Games
+          </button>
+        </div>
+      </main>
+    );
+  }
+
   function launchGame() {
+    if (!game) {
+      console.warn('No game found to launch.');
+      return;
+    }
+    if (!game.launcherUri || !game.launchUri) {
+      console.warn(`No game launcher URI found for game: ${game.title}`);
+      return;
+    }
+
     setStatus('launching');
 
     try {
@@ -38,7 +64,7 @@ export default function GameLauncher() {
       }
 
       // Attempt to launch the game
-      window.location.href = gameConfig.steamUrl;
+      window.location.href = game.launchUri;
 
       // Set up fallback timeout - assume success after a short delay
       fallbackTimeoutRef.current = setTimeout(() => {
@@ -48,9 +74,9 @@ export default function GameLauncher() {
         setTimeout(() => {
           setStatus('idle');
         }, 3000);
-      }, 1500); // Short delay to show launching state
+      }, 1500); // Short delay
 
-      // Handle visibility change to detect if user switches away (optional enhancement)
+      // Handle visibility change to detect if user switches away
       function handleVisibilityChange() {
         if (document.visibilityState === 'hidden') {
           if (fallbackTimeoutRef.current) {
@@ -78,7 +104,7 @@ export default function GameLauncher() {
   }
 
   function goBackToGames() {
-    window.location.href = gamesLocation;
+    window.location.href = '/#games';
   }
 
   function retryLaunch() {
@@ -107,13 +133,13 @@ export default function GameLauncher() {
   const currentStatus = statusConfig[status];
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white px-4">
+    <main className="flex items-center justify-center min-h-screen bg-gray-900 text-white px-4">
       <div className="flex flex-col text-center max-w-lg w-full bg-gray-950/90 backdrop-blur-lg rounded-3xl p-8 shadow-2xl border border-gray-700/50">
-        <h1 className="text-4xl font-bold mb-2 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+        <h1 className="text-4xl font-bold mb-2 from-blue-400 to-purple-400 bg-clip-text text-white">
           Game Launcher
         </h1>
 
-        <h2 className="text-xl text-gray-400 mb-8 capitalize">{gameConfig.displayName}</h2>
+        <h2 className="text-xl text-gray-400 mb-8 capitalize">{game.title}</h2>
 
         <div className="mb-8">
           <p
@@ -147,7 +173,7 @@ export default function GameLauncher() {
               onClick={launchGame}
               className="w-full bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white px-6 py-3 rounded-full text-lg font-semibold transition-all duration-200 shadow-lg hover:shadow-xl transform hover:cursor-pointer"
             >
-              🚀 Launch {gameConfig.displayName}
+              🚀 Launch {game.title}
             </button>
           )}
 
@@ -182,6 +208,6 @@ export default function GameLauncher() {
           </div>
         )}
       </div>
-    </div>
+    </main>
   );
 }

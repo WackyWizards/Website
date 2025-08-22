@@ -77,9 +77,9 @@ export default function Games() {
                       </p>
                     </div>
                     <div className="mt-4">
-                      {game.launchUri && (
+                      {game.launcherUri && (
                         <button
-                          onClick={() => launchGame(game.launchUri!)}
+                          onClick={() => launchGame(game.launcherUri!)}
                           className="w-full sm:w-auto bg-blue-600 text-white py-3 px-6 sm:px-8 rounded-md active:bg-blue-400 hover:bg-blue-500 transition duration-300 font-medium cursor-pointer text-base sm:text-lg"
                         >
                           Play Game
