@@ -1,14 +1,56 @@
 import { OrgName } from '@/constants';
+import { FaDiscord } from 'react-icons/fa';
+import { FaBluesky } from 'react-icons/fa6';
 import Link from 'next/link';
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-900 text-white p-4 mt-10 fixed bottom-0 w-full z-10">
-      <div className="flex items-center w-full">
-        <p className="text-sm flex-grow text-left">© 2025 {OrgName}. All rights reserved.</p>
-        <Link href="/privacy" className="text-sm whitespace-nowrap">
-          Privacy Policy
-        </Link>
+    <footer className="bg-gray-900 text-whit">
+      <div className="max-w-7xl mx-auto px-6 py-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {/* Company info */}
+          <div className="space-y-2">
+            <h3 className="text-lg font-semibold text-white">{OrgName}</h3>
+            <p className="text-gray-400 text-sm leading-relaxed">
+              Making video games.
+            </p>
+            <div className="flex space-x-4">
+              <a
+                href="https://bsky.app/profile/kuo-team.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-400 hover:text-white transition-colors"
+              >
+                <FaBluesky className="w-5 h-5" />
+              </a>
+              <a
+                href="https://discord.gg/kKU6a4AYNk"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-400 hover:text-white transition-colors"
+              >
+                <FaDiscord className="w-5 h-5" />
+              </a>
+            </div>
+          </div>
+        </div>
+
+        {/* Bottom section */}
+        <div className="border-t border-gray-800 mt-12 pt-8">
+          <div className="flex flex-col md:flex-row items-center md:justify-between text-sm text-gray-400">
+            {/* Copyright on the left, full width */}
+            <span className="w-full md:w-auto md:flex-grow">
+              © 2025 {OrgName}. All rights reserved.
+            </span>
+
+            {/* Links on the right */}
+            <div className="flex space-x-6 mt-4 md:mt-0">
+              <Link href="/privacy" className="hover:text-white transition-colors">
+                Privacy Policy
+              </Link>
+            </div>
+          </div>
+        </div>
       </div>
     </footer>
   );
