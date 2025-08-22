@@ -22,6 +22,11 @@ export default function Navbar() {
     }
   }
 
+  function redirectTo(url: string) {
+    setIsOpen(false);
+    redirect(url);
+  }
+
   return (
     <nav className="fixed bg-gray-900 text-white p-4 top-0 z-50 w-full">
       <div className="flex items-center w-full">
@@ -43,28 +48,28 @@ export default function Navbar() {
             <div className="flex w-full flex-col items-start space-y-4">
               <div
                 onClick={() => scrollToSection('home')}
-                className="flex p-1  w-full hover:text-gray-400 cursor-pointer"
+                className="flex p-1 w-full hover:text-gray-400 cursor-pointer"
               >
                 <p className="w-full">Home</p>
                 <FaHome className="text-gray-400" size={24} />
               </div>
               <div
                 onClick={() => scrollToSection('games')}
-                className="flex p-1  w-full hover:border-left hover:text-gray-400 cursor-pointer"
+                className="flex p-1 w-full hover:border-left hover:text-gray-400 cursor-pointer"
               >
                 <p className="w-full">Games</p>
                 <FaGamepad className="text-gray-400" size={24} />
               </div>
               <div
                 onClick={() => scrollToSection('team')}
-                className="flex p-1  w-full hover:border-left hover:text-gray-400 cursor-pointer"
+                className="flex p-1 w-full hover:border-left hover:text-gray-400 cursor-pointer"
               >
                 <p className="w-full">Team</p>
                 <LuUsers className="text-gray-400" size={24} />
               </div>
               <div
-                onClick={() => redirect('/news')}
-                className="flex p-1  w-full hover:border-left hover:text-gray-400 cursor-pointer"
+                onClick={() => redirectTo('/news')}
+                className="flex p-1 w-full hover:border-left hover:text-gray-400 cursor-pointer"
               >
                 <p className="w-full">News</p>
                 <FaNewspaper className="text-gray-400" size={24} />
