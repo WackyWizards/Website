@@ -1,6 +1,6 @@
 'use client';
 
-import { OrgName } from '@/constants';
+import { organization } from '@/constants';
 import { useState } from 'react';
 import { FiMenu, FiX } from 'react-icons/fi';
 import { FaHome, FaGamepad, FaNewspaper } from 'react-icons/fa';
@@ -34,7 +34,7 @@ export default function Navbar() {
           onClick={() => scrollToSection('home')}
           className="text-xl font-bold cursor-pointer flex-grow text-left"
         >
-          {OrgName}
+          {organization.name}
         </button>
 
         <div className="h-full flex items-center space-x-4 md:flex">
