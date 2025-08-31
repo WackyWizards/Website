@@ -1,9 +1,10 @@
 import React from 'react';
 import type { Metadata } from 'next';
+import { OrgName } from '@/constants';
 
 export const metadata: Metadata = {
   title: 'Apply',
-  description: 'Join our team!',
+  description: `Join the ${OrgName} team!`,
 };
 
 export default function Apply() {
