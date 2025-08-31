@@ -3,7 +3,7 @@ import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import { getAllNewsPosts, getNewsPost } from '@/lib/markdown';
 import { ArticleFooter } from '@/app/components/articlefooter';
-import { Metadata } from 'next';
+import type { Metadata } from 'next';
 
 // Generate static params for all news articles at build time
 export async function generateStaticParams() {

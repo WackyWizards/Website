@@ -1,6 +1,7 @@
+import type { Metadata } from 'next';
 import React from 'react';
 
-export const metadata = {
+export const metadata: Metadata = {
   title: 'Privacy Policy',
   description: 'Our privacy policy explains what data we collect, how we use it, and how you can control it across our services.',
 };
