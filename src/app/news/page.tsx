@@ -1,8 +1,9 @@
 import React from 'react';
 import Link from 'next/link';
 import { getAllNewsPosts } from '@/lib/markdown';
+import type { Metadata } from 'next';
 
-export const metadata = {
+export const metadata: Metadata = {
   title: 'News',
   description: 'Stay updated with the latest news',
 };
