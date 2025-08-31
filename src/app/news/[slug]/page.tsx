@@ -122,7 +122,7 @@ export default async function ArticlePage({
           </time>
         </header>
         <div
-          className="prose prose-lg max-w-none prose-invert prose-headings:text-white prose-p:text-gray-300 prose-a:text-blue-400 hover:prose-a:text-blue-600 prose-strong:text-white"
+          className="prose prose-lg max-w-none prose-invert prose-headings:text-white prose-p:leading-relaxed prose-p:text-gray-300 prose-a:text-blue-400 hover:prose-a:text-blue-600 prose-strong:text-white"
           dangerouslySetInnerHTML={{ __html: post.content }}
         />
         <ArticleFooter title={post.title} />
