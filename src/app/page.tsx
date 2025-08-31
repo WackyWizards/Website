@@ -36,6 +36,7 @@ const adjectives: string[] = [
   'Inspiring',
   'Awesome',
   'Ambitious',
+  'Wacky'
 ];
 
 export default function Home() {
