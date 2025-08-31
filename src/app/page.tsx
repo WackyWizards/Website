@@ -5,30 +5,9 @@ import { useEffect, useState } from 'react';
 import Games from '@/app/components/games';
 import Team from '@/app/components/team';
 
-import { FaDiscord } from 'react-icons/fa';
-import { FaBluesky } from 'react-icons/fa6';
-import { OrgName } from '@/constants';
+import { organization } from '@/constants';
 
 type BackgroundType = { type: 'image' | 'video'; src: string };
-type SocialLink = {
-  name: string;
-  icon: React.JSX.Element;
-  url: string;
-};
-
-const socialLinks: SocialLink[] = [
-  {
-    name: 'Discord',
-    icon: <FaDiscord className="w-9 h-9" />,
-    url: 'https://discord.gg/kKU6a4AYNk',
-  },
-  {
-    name: 'Bluesky',
-    icon: <FaBluesky className="w-9 h-9" />,
-    url: 'https://bsky.app/profile/kuo-team.com',
-  },
-];
-
 const adjectives: string[] = [
   'Innovative',
   'Creative',
@@ -180,7 +159,7 @@ export default function Home() {
           <main className="flex flex-col gap-6 items-center text-center max-w-4xl w-full">
             <div className="flex gap-2 items-center flex-col">
               <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold uppercase text-white">
-                {OrgName}
+                {organization.name}
               </h1>
               <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-gray-300">
                 Making{' '}
@@ -197,7 +176,7 @@ export default function Home() {
                 Video Games
               </p>
               <div className="flex gap-4 items-center justify-center">
-                {socialLinks.map((link) => (
+                {organization.socialLinks.map((link) => (
                   <a
                     key={link.name}
                     href={link.url}
@@ -205,7 +184,7 @@ export default function Home() {
                     rel="noopener noreferrer"
                     className="flex items-center justify-center transform hover:scale-105 transition-transform duration-200"
                   >
-                    {link.icon}
+                    <link.icon className="w-9 h-9" />
                   </a>
                 ))}
               </div>
