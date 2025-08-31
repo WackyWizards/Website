@@ -8,6 +8,30 @@ import Team from '@/app/components/team';
 import { FaDiscord } from 'react-icons/fa';
 import { FaBluesky } from 'react-icons/fa6';
 import { OrgName } from '@/constants';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: OrgName,
+  description: `${OrgName} is an indie game development studio making fun and engaging games!`,
+  icons: {
+    icon: '/logo.ico',
+  },
+  openGraph: {
+    title: OrgName,
+    description: `${OrgName}'s Website`,
+    url: 'https://www.kuo-team.com',
+    siteName: OrgName,
+    images: [
+      {
+        url: '/logo.png',
+        width: 128,
+        height: 128,
+        alt: `${OrgName} Logo`,
+      },
+    ],
+    type: 'website',
+  },
+};
 
 type BackgroundType = { type: 'image' | 'video'; src: string };
 type SocialLink = {
