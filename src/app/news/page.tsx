@@ -18,7 +18,7 @@ export default async function NewsPage() {
           <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent mb-4">
             Latest News
           </h1>
-          <p className="text-gray-400">Hear about our latest updates and announcements.</p>
+          <p className="text-base sm:text-lg text-gray-400">Hear about our latest updates and announcements.</p>
         </header>
 
         <section id="latest-news">

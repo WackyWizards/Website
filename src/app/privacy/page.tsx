@@ -14,7 +14,7 @@ export default function PrivacyPolicy() {
           <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent mb-4">
             Privacy Policy
           </h1>
-          <p className="text-gray-400">Last Updated: August 6th, 2025</p>
+          <p className="text-base sm:text-lg text-gray-400">Last Updated: August 6th, 2025</p>
         </header>
 
         <div className="prose prose-invert prose-lg max-w-none text-gray-300">
