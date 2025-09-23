@@ -255,8 +255,10 @@ export default function Team() {
     >
       <div className="max-w-7xl w-full">
         {/* Header */}
-        <header className="text-center mb-8 sm:mb-10 lg:mb-12">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-2 sm:mb-4">Our Team</h2>
+        <header className="mb-12 text-center pb-8">
+          <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent mb-4">
+            Our Team
+          </h2>
           <p className="text-base sm:text-lg text-gray-400">
             We are a global team who <b>loves</b> what we do.
           </p>

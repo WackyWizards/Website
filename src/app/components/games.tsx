@@ -37,8 +37,10 @@ export default function Games() {
     <section id="games" className="w-full flex flex-col items-center justify-center bg-gray-900">
       <div className="w-full h-full px-8 sm:px-6 lg:px-8 py-6 pt-8 sm:pt-26 pb-8 sm:pb-26">
         {/* Header */}
-        <header className="text-center mb-8 sm:mb-10 lg:mb-12">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-2 sm:mb-4">Our Games</h2>
+        <header className="mb-12 text-center pb-8">
+          <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent mb-4">
+            Our Games
+          </h2>
           <p className="text-base sm:text-lg text-gray-400">Check out our latest games!</p>
         </header>
 
