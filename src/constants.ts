@@ -1,5 +1,5 @@
 import React from "react";
-import { FaDiscord } from "react-icons/fa";
+import { FaDiscord, FaGithub } from "react-icons/fa";
 import { FaBluesky } from "react-icons/fa6";
 
 export const GTag = 'G-MH5E7L88G5';
@@ -32,5 +32,10 @@ export const organization: Organization = {
             icon: FaBluesky,
             url: 'https://bsky.app/profile/wackywizards.org',
         },
+        {
+            name: 'GitHub',
+            icon: FaGithub,
+            url: 'https://github.com/wackywizards',
+        }
     ],
 };
