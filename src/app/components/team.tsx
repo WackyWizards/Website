@@ -103,7 +103,7 @@ const countryNames: Record<string, string> = {
 
 const teamMembers: TeamMember[] = [
   {
-    name: 'kEllie',
+    name: 'kellie',
     role: 'Founder, Lead Programmer',
     avatar: '/kEllieDev.jpg',
     country: 'FI',
