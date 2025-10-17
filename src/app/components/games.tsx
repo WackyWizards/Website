@@ -71,7 +71,7 @@ export default function Games() {
 
                   <div className="relative z-10 flex flex-col justify-between w-full h-full">
                     <div className="flex flex-col w-full flex-1">
-                      <h3 className="text-2xl sm:text-3xl lg:text-4xl font-medium mb-3 sm:mb-4 text-white drop-shadow-lg">
+                      <h3 className="text-2xl sm:text-3xl lg:text-4xl font-medium mb-3 sm:mb-4 text-white drop-shadow-lg uppercase">
                         {game.title}
                       </h3>
                       <p className="text-white text-sm sm:text-base lg:text-lg whitespace-pre-line leading-relaxed drop-shadow-md">
