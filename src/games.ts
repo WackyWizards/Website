@@ -47,10 +47,18 @@ export const games: Game[] = [
     ],
     metadata: {
       title: 'Launch Observation | Game Launcher',
-      description:
-        'Launch Observation directly from your browser. Work for a mysterious company, observe security cameras, and report anomalies in this thrilling S&Box game.',
+      description: 'Work for a mysterious company, observe security cameras, report anomalies.',
       ogImage: '/observation-1.png',
-      keywords: ['observation', 'sbox', 'game', 'security cameras', 'anomalies'],
+      keywords: [
+        'observation',
+        'sbox',
+        's&box',
+        'game',
+        'horror',
+        'horror game',
+        'security cameras',
+        'anomalies',
+      ],
     },
   },
 ];
