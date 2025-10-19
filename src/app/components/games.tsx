@@ -8,7 +8,7 @@ export default function Games() {
   const [currentGameIndex, setCurrentGameIndex] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
 
-  const launchGame = (uri: string) => (window.location.href = uri);
+  const launchGame = (slug: string) => (window.location.href = `/play/${slug}`);
 
   const handleGameChange = (direction: number) => {
     if (isAnimating) {
@@ -79,14 +79,12 @@ export default function Games() {
                       </p>
                     </div>
                     <div className="mt-4">
-                      {game.launcherUri && (
-                        <button
-                          onClick={() => launchGame(game.launcherUri!)}
-                          className="w-full sm:w-auto bg-blue-600 text-white py-3 px-6 sm:px-8 rounded-md active:bg-blue-400 hover:bg-blue-500 transition duration-300 font-medium cursor-pointer text-base sm:text-lg"
-                        >
-                          Play Game
-                        </button>
-                      )}
+                      <button
+                        onClick={() => launchGame(game.slug)}
+                        className="w-full sm:w-auto bg-blue-600 text-white py-3 px-6 sm:px-8 rounded-md active:bg-blue-400 hover:bg-blue-500 transition duration-300 font-medium cursor-pointer text-base sm:text-lg"
+                      >
+                        Play Game
+                      </button>
                     </div>
                   </div>
                 </div>

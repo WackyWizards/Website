@@ -1,20 +1,15 @@
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
-import { usePathname } from 'next/navigation';
-import { games, Game } from '@/games';
+import { Game } from '@/games';
 
-export default function GameLauncher() {
-  const pathname = usePathname();
+type GameLauncherProps = {
+  game: Game | undefined;
+};
+
+export default function GameLauncher({ game }: GameLauncherProps) {
   const [status, setStatus] = useState<'idle' | 'launching' | 'success' | 'error'>('idle');
   const fallbackTimeoutRef = useRef<NodeJS.Timeout | null>(null);
-
-  // Automatically find the game based on the current route
-  const game: Game | undefined = games.find(g => {
-    // Extract game name from pathname (e.g., /play/observation -> observation)
-    const gameNameFromPath = pathname.split('/').pop()?.toLowerCase();
-    return g.title.toLowerCase() === gameNameFromPath;
-  });
 
   // Cleanup timeout on unmount
   useEffect(() => {
@@ -32,10 +27,11 @@ export default function GameLauncher() {
         <div className="flex flex-col text-center max-w-lg w-full bg-gray-950/90 backdrop-blur-lg rounded-3xl p-8 shadow-2xl border border-gray-700/50">
           <h1 className="text-4xl font-bold mb-2 text-white">Game Not Found</h1>
           <p className="text-gray-400 mb-8">
-            Could not find a game matching the current route: {pathname}
+            The requested game could not be found. It may have been removed or the link is
+            incorrect.
           </p>
           <button
-            onClick={() => window.location.href = '/#games'}
+            onClick={() => (window.location.href = '/#games')}
             className="w-full bg-gray-700/80 hover:bg-gray-600/80 text-white px-5 py-3 rounded-full text-base font-medium transition-all duration-200 border border-gray-600 hover:border-gray-500 hover:cursor-pointer"
           >
             ← Back to Games
@@ -46,12 +42,8 @@ export default function GameLauncher() {
   }
 
   function launchGame() {
-    if (!game) {
-      console.warn('No game found to launch.');
-      return;
-    }
-    if (!game.launcherUri || !game.launchUri) {
-      console.warn(`No game launcher URI found for game: ${game.title}`);
+    if (!game || !game.launchUri) {
+      console.warn('No game launch URI found');
       return;
     }
 
@@ -74,7 +66,7 @@ export default function GameLauncher() {
         setTimeout(() => {
           setStatus('idle');
         }, 3000);
-      }, 1500); // Short delay
+      }, 1500);
 
       // Handle visibility change to detect if user switches away
       function handleVisibilityChange() {
@@ -135,11 +127,9 @@ export default function GameLauncher() {
   return (
     <main className="flex items-center justify-center min-h-screen bg-gray-900 text-white px-4">
       <div className="flex flex-col text-center max-w-lg w-full bg-gray-950/90 backdrop-blur-lg rounded-3xl p-8 shadow-2xl border border-gray-700/50">
-        <h1 className="text-4xl font-bold mb-2 from-blue-400 to-purple-400 bg-clip-text text-white">
-          Game Launcher
-        </h1>
+        <h1 className="text-4xl font-bold mb-2 text-white">Game Launcher</h1>
 
-        <h2 className="text-xl text-gray-400 mb-8 capitalize">{game.title}</h2>
+        <h2 className="text-xl text-gray-400 mb-8">{game.title}</h2>
 
         <div className="mb-8">
           <p
