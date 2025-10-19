@@ -50,7 +50,7 @@ export default function Games() {
             className="flex w-full transition-transform duration-300 ease-in-out"
             style={{ transform: `translateX(-${currentGameIndex * 100}%)` }}
           >
-            {games.map((game, index) => (
+            {games.filter((game) => !game.hide).map((game, index) => (
               <div
                 key={index}
                 className="w-full flex-shrink-0 px-1 sm:px-2 flex items-center justify-center"
