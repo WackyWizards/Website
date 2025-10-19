@@ -1,5 +1,7 @@
 export type Game = {
   title: string;
+  /** Whether this game is hidden from the game list */
+  hide: boolean;
   /** URL-friendly identifier */
   slug: string;
   description: string;
@@ -30,6 +32,7 @@ export type GameMetadata = {
 export const games: Game[] = [
   {
     title: 'Observation',
+    hide: false,
     slug: 'observation',
     description:
       "Work for a mysterious company, observe security cameras, report anomalies.\nInspired by I'm on Observation Duty.",
