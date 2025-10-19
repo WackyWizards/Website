@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 import { organization } from '@/constants';
-import HomeClient from './components/home';
+import Home from './components/home';
 
 export const metadata: Metadata = {
   title: organization.name,
@@ -30,5 +30,5 @@ export const metadata: Metadata = {
 };
 
 export default function HomePage() {
-  return <HomeClient />;
+  return <Home />;
 }

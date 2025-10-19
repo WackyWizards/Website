@@ -16,7 +16,7 @@ const adjectives: string[] = [
   'Wacky',
 ];
 
-export default function HomeClient() {
+export default function Home() {
   const [backgroundIndex, setBackgroundIndex] = useState(0);
   const [currentAdjective, setCurrentAdjective] = useState(adjectives[0]);
   const [displayedText, setDisplayedText] = useState('');
