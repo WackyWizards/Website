@@ -105,7 +105,7 @@ const teamMembers: TeamMember[] = [
   {
     name: 'kellie',
     role: 'Founder, Lead Programmer',
-    avatar: '/kEllieDev.jpg',
+    avatar: '/kellie.jpg',
     country: 'FI',
     socialLinks: [],
     messages: [
