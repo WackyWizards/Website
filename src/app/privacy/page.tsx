@@ -19,7 +19,7 @@ export default function PrivacyPolicy() {
 
         <div className="prose prose-invert prose-lg max-w-none text-gray-300">
           <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-8 mb-8">
-            <p className="text-xl leading-relaxed text-gray-200 mb-0">
+            <p className="text-xl leading-relaxed text-gray-200">
               We are committed to protecting your privacy and being transparent about how we handle
               your data. This policy explains what information we collect, why we collect it, how we
               use it, and your rights regarding your personal data when you use our services.
