@@ -13,7 +13,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   if (!game) {
     return {
-      title: 'Game Not Found | Game Launcher',
+      title: 'Game Not Found',
       description: 'The requested game could not be found.',
     };
   }
