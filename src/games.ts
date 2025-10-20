@@ -1,7 +1,7 @@
 export type Game = {
-  title: string;
   /** Whether this game is hidden from the game list */
-  hide: boolean;
+  hide?: boolean;
+  title: string;
   /** URL-friendly identifier */
   slug: string;
   description: string;
@@ -32,7 +32,6 @@ export type GameMetadata = {
 export const games: Game[] = [
   {
     title: 'Observation',
-    hide: false,
     slug: 'observation',
     description:
       "Work for a mysterious company, observe security cameras, report anomalies.\nInspired by I'm on Observation Duty.",
@@ -49,7 +48,7 @@ export const games: Game[] = [
       },
     ],
     metadata: {
-      title: 'Launch Observation | Game Launcher',
+      title: 'Observation',
       description: 'Work for a mysterious company, observe security cameras, report anomalies.',
       ogImage: '/observation-1.png',
       keywords: [
