@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import Games from '@/app/components/games';
+import Games from '@/app/components/old_games';
 import Team from '@/app/components/team';
 import { organization } from '@/constants';
 
