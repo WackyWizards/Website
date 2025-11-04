@@ -50,46 +50,48 @@ export default function Games() {
             className="flex w-full transition-transform duration-300 ease-in-out"
             style={{ transform: `translateX(-${currentGameIndex * 100}%)` }}
           >
-            {games.filter((game) => !game.hide).map((game, index) => (
-              <div
-                key={index}
-                className="w-full flex-shrink-0 px-1 sm:px-2 flex items-center justify-center"
-              >
+            {games
+              .filter((game) => !game.hide)
+              .map((game, index) => (
                 <div
-                  className="relative p-4 sm:p-6 shadow-lg w-full min-h-[450px] sm:min-h-[500px] rounded-lg overflow-hidden"
-                  style={{
-                    backgroundImage:
-                      game.images.length > 0 ? `url(${game.images[0].src})` : undefined,
-                    backgroundSize: 'cover',
-                    backgroundRepeat: 'no-repeat',
-                    backgroundPosition: 'center',
-                    backgroundColor: game.images.length === 0 ? '#2d2d2d' : '#1f2937',
-                  }}
+                  key={index}
+                  className="w-full flex-shrink-0 px-1 sm:px-2 flex items-center justify-center"
                 >
-                  {/* Dark overlay for better text readability */}
-                  <div className="absolute inset-0 bg-black/50 sm:bg-black/40"></div>
+                  <div
+                    className="relative p-4 sm:p-6 shadow-lg w-full min-h-[450px] sm:min-h-[500px] rounded-lg overflow-hidden"
+                    style={{
+                      backgroundImage:
+                        game.images.length > 0 ? `url(${game.images[0].src})` : undefined,
+                      backgroundSize: 'cover',
+                      backgroundRepeat: 'no-repeat',
+                      backgroundPosition: 'center',
+                      backgroundColor: game.images.length === 0 ? '#2d2d2d' : '#1f2937',
+                    }}
+                  >
+                    {/* Dark overlay for better text readability */}
+                    <div className="absolute inset-0 bg-black/50 sm:bg-black/40"></div>
 
-                  <div className="relative z-10 flex flex-col justify-between w-full h-full">
-                    <div className="flex flex-col w-full flex-1">
-                      <h3 className="text-2xl sm:text-3xl lg:text-4xl font-medium mb-3 sm:mb-4 text-white drop-shadow-lg uppercase">
-                        {game.title}
-                      </h3>
-                      <p className="text-white text-sm sm:text-base lg:text-lg whitespace-pre-line leading-relaxed drop-shadow-md">
-                        {game.description}
-                      </p>
-                    </div>
-                    <div className="mt-4">
-                      <button
-                        onClick={() => launchGame(game.slug)}
-                        className="w-full sm:w-auto bg-blue-600 text-white py-3 px-6 sm:px-8 rounded-md active:bg-blue-400 hover:bg-blue-500 transition duration-300 font-medium cursor-pointer text-base sm:text-lg"
-                      >
-                        Play Game
-                      </button>
+                    <div className="relative z-10 flex flex-col justify-between w-full h-full">
+                      <div className="flex flex-col w-full flex-1">
+                        <h3 className="text-2xl sm:text-3xl lg:text-4xl font-medium mb-3 sm:mb-4 text-white drop-shadow-lg uppercase">
+                          {game.title}
+                        </h3>
+                        <p className="text-white text-sm sm:text-base lg:text-lg whitespace-pre-line leading-relaxed drop-shadow-md">
+                          {game.description}
+                        </p>
+                      </div>
+                      <div className="mt-4">
+                        <button
+                          onClick={() => launchGame(game.slug)}
+                          className="w-full sm:w-auto bg-blue-600 text-white py-3 px-6 sm:px-8 rounded-md active:bg-blue-400 hover:bg-blue-500 transition duration-300 font-medium cursor-pointer text-base sm:text-lg"
+                        >
+                          Play Game
+                        </button>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              ))}
           </div>
 
           {/* Navigation Arrows - Only show if more than one game */}
@@ -102,7 +104,7 @@ export default function Games() {
                   aria-label="Previous game"
                   disabled={isAnimating}
                 >
-                  <FaChevronCircleLeft size={window.innerWidth < 640 ? 28 : 35} />
+                  <FaChevronCircleLeft className="hidden sm:block" size={35} />
                 </button>
               </div>
               <div className="absolute right-2 sm:right-4 top-1/2 transform -translate-y-1/2 z-10">
@@ -110,7 +112,7 @@ export default function Games() {
                   onClick={() => handleGameChange(1)}
                   className="bg-gray-900/80 hover:bg-gray-600/80 p-2 sm:p-3 rounded-full text-white cursor-pointer transition duration-300 backdrop-blur-sm"
                 >
-                  <FaChevronCircleRight size={window.innerWidth < 640 ? 28 : 35} />
+                  <FaChevronCircleRight className="hidden sm:block" size={35} />
                 </button>
               </div>
 
