@@ -4,7 +4,6 @@ import { organization } from '@/constants';
 import { useState } from 'react';
 import { FiMenu, FiX } from 'react-icons/fi';
 import { FaGamepad, FaNewspaper } from 'react-icons/fa';
-import { LuUsers } from 'react-icons/lu';
 import { redirect } from 'next/navigation';
 
 export default function Navbar() {
@@ -31,7 +30,6 @@ export default function Navbar() {
 
   const menuItems = [
     { name: 'Games', icon: <FaGamepad size={24} />, action: () => handleRedirect('/games') },
-    { name: 'Team', icon: <LuUsers size={24} />, action: () => scrollToSection('team') },
     { name: 'News', icon: <FaNewspaper size={24} />, action: () => handleRedirect('/news') },
   ];
 
