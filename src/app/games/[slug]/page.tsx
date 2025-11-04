@@ -1,43 +1,59 @@
-import { findGameBySlug, getAllGameSlugs } from '@/games';
+import { findGameBySlug, getAllGameSlugs, Game } from '@/games';
 import { notFound } from 'next/navigation';
+import HeroParallax from '@/app/components/heroparallax';
 
-// ✅ Prebuild static paths for all games
+// Pre-generate static params
 export async function generateStaticParams() {
   return getAllGameSlugs().map((slug) => ({ slug }));
 }
 
-// ✅ Default export — must be a React component
-export default function GamePage({ params }: { params: { slug: string } }) {
-  const game = findGameBySlug(params.slug);
+interface PageProps {
+  params: { slug: string };
+}
+
+export default async function GamePage({ params }: PageProps) {
+  const { slug } = await params;
+  const game: Game | undefined = findGameBySlug(slug);
+
   if (!game) notFound();
 
   return (
-    <div className="pt-20 p-8 max-w-4xl mx-auto">
-      {/* ↑ add pt-20 (or adjust to your navbar height) */}
-      <h1 className="text-4xl font-bold mb-4">{game.title}</h1>
-      <p className="text-lg text-gray-300 whitespace-pre-line mb-8">{game.description}</p>
+    <main className="w-full min-h-screen bg-gray-900 text-white flex flex-col">
+      <HeroParallax game={game} />
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-        {game.images.map((img, i) => (
-          <img
-            key={i}
-            src={img.src}
-            alt={img.alt}
-            className="rounded-lg shadow-lg object-cover w-full h-auto"
-          />
-        ))}
-      </div>
+      {/* Media Gallery */}
+      {(game.images.length > 1 || (game.videos && game.videos.length > 0)) && (
+        <section className="w-full flex flex-wrap justify-center gap-6 p-6 bg-gray-800">
+          {game.images.slice(1).map((img, i) => (
+            <div
+              key={`img-${i}`}
+              className="w-full sm:w-1/2 lg:w-1/3 max-w-[400px] h-auto rounded-lg overflow-hidden shadow-lg flex justify-center items-center"
+            >
+              <img
+                src={img.src}
+                alt={img.alt}
+                className="object-contain w-full h-full"
+              />
+            </div>
+          ))}
 
-      {game.link && (
-        <a
-          href={game.launchUri}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-block mt-8 px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition"
-        >
-          Play
-        </a>
+          {game.videos &&
+            game.videos.map((vid, i) => (
+              <div
+                key={`vid-${i}`}
+                className="w-full sm:w-1/2 lg:w-1/3 max-w-[400px] h-auto rounded-lg overflow-hidden shadow-lg flex justify-center items-center"
+              >
+                <video
+                  src={vid.src}
+                  controls
+                  className="w-full h-full object-contain"
+                >
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+            ))}
+        </section>
       )}
-    </div>
+    </main>
   );
 }

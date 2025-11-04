@@ -10,10 +10,16 @@ export type Game = {
   /** External link (e.g., sbox.game) */
   link?: string;
   images: GameImage[];
+  videos?: GameVideo[];
   metadata: GameMetadata;
 };
 
 export type GameImage = {
+  src: string;
+  alt: string;
+};
+
+export type GameVideo = {
   src: string;
   alt: string;
 };
@@ -46,7 +52,23 @@ export const games: Game[] = [
         src: '/games/observation/observation-2.jpg',
         alt: 'Observation Game Screenshot 2',
       },
+      {
+        src: '/games/observation/observation-3.jpg',
+        alt: 'Observation Game Screenshot 3',
+      },
+      {
+        src: '/games/observation/observation-4.jpg',
+        alt: 'Observation Game Screenshot 4',
+      },
+      {
+        src: '/games/observation/observation-5.jpg',
+        alt: 'Observation Game Screenshot 5',
+      },
     ],
+    videos: [{
+      src: '/games/observation/observation-gameplay.mp4',
+      alt: 'Observation Game Video'
+    }],
     metadata: {
       title: 'Observation',
       description: 'Work for a mysterious company, observe security cameras, report anomalies.',
@@ -66,8 +88,9 @@ export const games: Game[] = [
   {
     title: 'Untitled Card Game',
     slug: 'untitledcardgame',
-    description: 'Go on an epic quest, fight all sorts of enemies, buy upgrades from the store and clear levels.',
-    launchUri: 'stream://run/590830//-rungame spoonstuff.card_game',
+    description:
+      'Go on an epic quest, fight all sorts of enemies, buy upgrades from the store and clear levels.',
+    launchUri: 'steam://run/590830//-rungame spoonstuff.card_game',
     link: 'https://sbox.game/spoonstuff/card_game',
     images: [
       {
@@ -81,7 +104,8 @@ export const games: Game[] = [
     ],
     metadata: {
       title: 'Untitled Card Game',
-      description: 'Go on an epic quest, fight all sorts of enemies, buy upgrades from the store and clear levels.',
+      description:
+        'Go on an epic quest, fight all sorts of enemies, buy upgrades from the store and clear levels.',
       ogImage: '/games/untitledcardgame/untitledcardgame1.jpg',
       keywords: [
         'cards',
