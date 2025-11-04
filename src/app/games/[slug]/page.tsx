@@ -29,11 +29,7 @@ export default async function GamePage({ params }: PageProps) {
               key={`img-${i}`}
               className="w-full sm:w-1/2 lg:w-1/3 max-w-[400px] h-auto rounded-lg overflow-hidden shadow-lg flex justify-center items-center"
             >
-              <img
-                src={img.src}
-                alt={img.alt}
-                className="object-contain w-full h-full"
-              />
+              <img src={img.src} alt={img.alt} className="object-contain w-full h-full" />
             </div>
           ))}
 
@@ -41,15 +37,15 @@ export default async function GamePage({ params }: PageProps) {
             game.videos.map((vid, i) => (
               <div
                 key={`vid-${i}`}
-                className="w-full sm:w-1/2 lg:w-1/3 max-w-[400px] h-auto rounded-lg overflow-hidden shadow-lg flex justify-center items-center"
+                className="w-full sm:w-1/2 lg:w-1/3 max-w-[400px] h-[225px] rounded-lg overflow-hidden shadow-lg flex justify-center items-center"
               >
-                <video
+                <iframe
                   src={vid.src}
-                  controls
-                  className="w-full h-full object-contain"
-                >
-                  Your browser does not support the video tag.
-                </video>
+                  title={`video-${i}`}
+                  className="w-full h-full"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                ></iframe>
               </div>
             ))}
         </section>

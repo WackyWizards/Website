@@ -21,7 +21,6 @@ export type GameImage = {
 
 export type GameVideo = {
   src: string;
-  alt: string;
 };
 
 export type GameMetadata = {
@@ -65,10 +64,14 @@ export const games: Game[] = [
         alt: 'Observation Game Screenshot 5',
       },
     ],
-    videos: [{
-      src: '/games/observation/observation-gameplay.mp4',
-      alt: 'Observation Game Video'
-    }],
+    videos: [
+      {
+        src: 'https://www.youtube.com/embed/Thk5dnNKP-E?si=edtJC1H5oPvJdwAF',
+      },
+      {
+        src: 'https://www.youtube.com/embed/V3oU_zBL-3g?si=s1VLh7lI8BxTQOLt',
+      },
+    ],
     metadata: {
       title: 'Observation',
       description: 'Work for a mysterious company, observe security cameras, report anomalies.',
