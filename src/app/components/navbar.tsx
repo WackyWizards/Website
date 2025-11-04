@@ -3,81 +3,86 @@
 import { organization } from '@/constants';
 import { useState } from 'react';
 import { FiMenu, FiX } from 'react-icons/fi';
-import { FaHome, FaGamepad, FaNewspaper } from 'react-icons/fa';
+import { FaGamepad, FaNewspaper } from 'react-icons/fa';
 import { LuUsers } from 'react-icons/lu';
 import { redirect } from 'next/navigation';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
-  function scrollToSection(sectionId: string) {
-    if (location.pathname !== '/') {
-      location.href = '/#' + sectionId;
+  const scrollToSection = (sectionId: string) => {
+    setIsOpen(false);
+
+    if (window.location.pathname !== '/') {
+      window.location.href = '/#' + sectionId;
+      return;
     }
 
-    setIsOpen(false);
     const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     }
-  }
+  };
 
-  function redirectTo(url: string) {
+  const handleRedirect = (url: string) => {
     setIsOpen(false);
     redirect(url);
-  }
+  };
+
+  const menuItems = [
+    { name: 'Games', icon: <FaGamepad size={24} />, action: () => handleRedirect('/games') },
+    { name: 'Team', icon: <LuUsers size={24} />, action: () => scrollToSection('team') },
+    { name: 'News', icon: <FaNewspaper size={24} />, action: () => handleRedirect('/news') },
+  ];
 
   return (
-    <nav className="fixed bg-gray-900 text-white p-4 top-0 z-50 w-full">
-      <div className="flex items-center w-full">
+    <nav className="fixed top-0 w-full bg-gray-900 text-white z-50 p-4">
+      <div className="flex items-center justify-between w-full">
         <button
           onClick={() => scrollToSection('home')}
-          className="text-xl font-bold cursor-pointer flex-grow text-left"
+          className="text-xl font-bold cursor-pointer"
         >
           {organization.name}
         </button>
 
-        <div className="h-full flex items-center space-x-4 md:flex">
-          <button className="cursor-pointer" onClick={() => setIsOpen(!isOpen)}>
-            {isOpen ? <FiX size={24} /> : <FiMenu size={24} />}
-          </button>
+        {/* Desktop menu */}
+        <div className="hidden md:flex space-x-6">
+          {menuItems.map((item) => (
+            <div
+              key={item.name}
+              onClick={item.action}
+              className="flex items-center space-x-2 cursor-pointer hover:text-gray-400"
+            >
+              <span>{item.name}</span>
+              {item.icon}
+            </div>
+          ))}
         </div>
 
-        {isOpen && (
-          <div className="absolute w-70 top-16 right-2 bg-gray-800 p-4 rounded shadow-lg z-20">
-            <div className="flex w-full flex-col items-start space-y-4">
-              <div
-                onClick={() => scrollToSection('home')}
-                className="flex p-1 w-full hover:text-gray-400 cursor-pointer"
-              >
-                <p className="w-full">Home</p>
-                <FaHome className="text-gray-400" size={24} />
-              </div>
-              <div
-                onClick={() => redirect('/games')}
-                className="flex p-1 w-full hover:border-left hover:text-gray-400 cursor-pointer"
-              >
-                <p className="w-full">Games</p>
-                <FaGamepad className="text-gray-400" size={24} />
-              </div>
-              <div
-                onClick={() => scrollToSection('team')}
-                className="flex p-1 w-full hover:border-left hover:text-gray-400 cursor-pointer"
-              >
-                <p className="w-full">Team</p>
-                <LuUsers className="text-gray-400" size={24} />
-              </div>
-              <div
-                onClick={() => redirectTo('/news')}
-                className="flex p-1 w-full hover:border-left hover:text-gray-400 cursor-pointer"
-              >
-                <p className="w-full">News</p>
-                <FaNewspaper className="text-gray-400" size={24} />
-              </div>
-            </div>
-          </div>
-        )}
+        {/* Mobile toggle button */}
+        <button
+          className="md:hidden cursor-pointer"
+          onClick={() => setIsOpen(!isOpen)}
+        >
+          {isOpen ? <FiX size={24} /> : <FiMenu size={24} />}
+        </button>
       </div>
+
+      {/* Mobile dropdown */}
+      {isOpen && (
+        <div className="md:hidden absolute top-16 right-2 w-64 bg-gray-800 p-4 rounded shadow-lg flex flex-col space-y-4 z-20">
+          {menuItems.map((item) => (
+            <div
+              key={item.name}
+              onClick={item.action}
+              className="flex items-center justify-between w-full p-2 cursor-pointer hover:text-gray-400"
+            >
+              <span>{item.name}</span>
+              {item.icon}
+            </div>
+          ))}
+        </div>
+      )}
     </nav>
   );
 }
