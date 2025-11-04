@@ -39,18 +39,18 @@ export const games: Game[] = [
     link: 'https://sbox.game/spoonstuff/observation',
     images: [
       {
-        src: '/observation-1.png',
+        src: '/games/observation/observation-1.png',
         alt: 'Observation Game Screenshot 1',
       },
       {
-        src: '/observation-2.png',
+        src: '/games/observation/observation-2.jpg',
         alt: 'Observation Game Screenshot 2',
       },
     ],
     metadata: {
       title: 'Observation',
       description: 'Work for a mysterious company, observe security cameras, report anomalies.',
-      ogImage: '/observation-1.png',
+      ogImage: '/games/observation/observation-1.png',
       keywords: [
         'observation',
         'sbox',
@@ -60,6 +60,41 @@ export const games: Game[] = [
         'horror game',
         'security cameras',
         'anomalies',
+      ],
+    },
+  },
+  {
+    title: 'Untitled Card Game',
+    slug: 'untitledcardgame',
+    description: 'Go on an epic quest, fight all sorts of enemies, buy upgrades from the store and clear levels.',
+    launchUri: 'stream://run/590830//-rungame spoonstuff.card_game',
+    link: 'https://sbox.game/spoonstuff/card_game',
+    images: [
+      {
+        src: '/games/untitledcardgame/untitledcardgame1.jpg',
+        alt: 'Untitled Card Game Screenshot 1',
+      },
+      {
+        src: '/games/untitledcardgame/untitledcardgame2.jpg',
+        alt: 'Untitled Card Game Screenshot 2',
+      },
+    ],
+    metadata: {
+      title: 'Untitled Card Game',
+      description: 'Go on an epic quest, fight all sorts of enemies, buy upgrades from the store and clear levels.',
+      ogImage: '/games/untitledcardgame/untitledcardgame1.jpg',
+      keywords: [
+        'cards',
+        'sbox',
+        's&box',
+        'game',
+        'card battler',
+        'adventure',
+        'card game',
+        'zombies',
+        'enemies',
+        'store',
+        'upgrade',
       ],
     },
   },

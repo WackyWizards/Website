@@ -24,8 +24,10 @@ export default function Home() {
   const [showCursor, setShowCursor] = useState(true);
 
   const backgrounds: BackgroundType[] = [
-    { type: 'image', src: '/observation-1.png' },
-    { type: 'image', src: '/observation-2.jpg' },
+    { type: 'image', src: '/games/untitledcardgame/untitledcardgame1.jpg' },
+    { type: 'image', src: '/games/observation/observation-1.png' },
+    { type: 'image', src: '/games/untitledcardgame/untitledcardgame2.jpg' },
+    { type: 'image', src: '/games/observation/observation-2.jpg' },
   ];
 
   // Background rotation timer (every 10 seconds)
