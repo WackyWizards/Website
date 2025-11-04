@@ -54,7 +54,7 @@ export default function Navbar() {
                 <FaHome className="text-gray-400" size={24} />
               </div>
               <div
-                onClick={() => scrollToSection('games')}
+                onClick={() => redirect('/games')}
                 className="flex p-1 w-full hover:border-left hover:text-gray-400 cursor-pointer"
               >
                 <p className="w-full">Games</p>
