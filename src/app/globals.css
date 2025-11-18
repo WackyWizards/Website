@@ -17,3 +17,48 @@ body {
   background: var(--background);
   color: var(--foreground);
 }
+
+.spoiler {
+  background-color: #202225;
+  color: transparent;
+  padding: 0 2px;
+  border-radius: 3px;
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.1s ease;
+  position: relative;
+}
+
+.spoiler::selection {
+  background-color: transparent;
+}
+
+.spoiler:hover {
+  background-color: #292b2f;
+}
+
+.spoiler.revealed {
+  background-color: #2f3136;
+  color: #dcddde;
+  cursor: text;
+  user-select: text;
+}
+
+.spoiler.revealed::selection {
+  background-color: #5865f2;
+  color: white;
+}
+
+/* Optional: Add a subtle hint on hover */
+.spoiler:not(.revealed)::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.05), transparent);
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.spoiler:not(.revealed):hover::after {
+  opacity: 1;
+}

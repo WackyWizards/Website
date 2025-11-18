@@ -3,17 +3,18 @@ import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import { getAllNewsPosts, getNewsPost } from '@/lib/markdown';
 import { ArticleFooter } from '@/app/components/articlefooter';
+import { SpoilerScript } from '@/app/components/spoilerscript';
 import type { Metadata } from 'next';
 
 // Generate static params for all news articles at build time
 export async function generateStaticParams() {
   const posts = await getAllNewsPosts();
-  
+
   // If no posts exist, return a dummy post to satisfy static export
   if (posts.length === 0) {
     return [{ slug: '__no_posts__' }];
   }
-  
+
   return posts.map((post) => ({
     slug: post.id,
   }));
@@ -28,23 +29,23 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  
+
   if (slug === '__no_posts__') {
     return {
       title: 'No Articles Yet | News',
       description: 'No news articles have been published yet.',
     };
   }
-  
+
   const post = await getNewsPost(slug);
-  
+
   if (!post) {
     return {
       title: 'Article Not Found | News',
       description: 'The requested article could not be found.',
     };
   }
-  
+
   return {
     title: `${post.title} | News`,
     description: post.excerpt || `Read about ${post.title}`,
@@ -76,26 +77,24 @@ export async function generateMetadata({
   };
 }
 
-export default async function ArticlePage({ 
-  params 
-}: { 
-  params: Promise<{ slug: string }> 
-}) {
+export default async function ArticlePage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  
+
   // Handle the dummy case when no posts exist
   if (slug === '__no_posts__') {
     notFound();
   }
-  
+
   const post = await getNewsPost(slug);
-  
+
   if (!post) {
     notFound();
   }
-  
+
   return (
     <main className="mx-auto min-h-screen bg-gray-900 py-16">
+      <SpoilerScript />
+
       <article className="relative mx-auto max-w-4xl px-6 md:px-10 pt-6 md:pt-10">
         <header className="mb-8">
           <div className="flex items-center space-x-4">
