@@ -35,8 +35,8 @@ export const games: Game[] = [
     slug: 'observation',
     description:
       "Work for a mysterious company, observe security cameras, report anomalies.\nInspired by I'm on Observation Duty.",
-    launchUri: 'steam://run/590830//-rungame spoonstuff.observation',
-    link: 'https://sbox.game/spoonstuff/observation',
+    launchUri: 'steam://run/590830//-rungame wizards.observation',
+    link: 'https://sbox.game/wizards/observation',
     images: [
       {
         src: '/observation-1.png',
