@@ -1011,7 +1011,7 @@ export default function PrivacyPolicy() {
                   </div>
                   <div>
                     <span className="font-semibold text-white">Email:</span>
-                    <span className="text-gray-300 ml-2">contact.kuo.team@gmail.com</span>
+                    <span className="text-gray-300 ml-2">contact.wackywizards.org@gmail.com</span>
                   </div>
                 </div>
 
@@ -1024,7 +1024,7 @@ export default function PrivacyPolicy() {
                   <div>
                     <span className="font-semibold text-white">Discord:</span>
                     <a
-                      href="https://www.kuo-team.com/discord"
+                      href="https://www.wackywizards.org/discord"
                       className="text-blue-400 hover:text-blue-300 ml-2 underline transition-colors"
                     >
                       Support Server
