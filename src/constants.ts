@@ -19,7 +19,7 @@ export interface SocialLink {
 
 export const organization: Organization = {
     name: 'Wacky Wizards',
-    description: 'An indie game development studio making fun and engaging games!',
+    description: 'Indie Game Development Organization',
     website: 'https://www.wackywizards.org',
     socialLinks: [
         {
