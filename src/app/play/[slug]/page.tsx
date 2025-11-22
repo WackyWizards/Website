@@ -6,7 +6,9 @@ type Props = {
   params: Promise<{ slug: string }>;
 };
 
-// Generate metadata for SEO
+/**
+ * Generate metadata for SEO
+ */
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const game = findGameBySlug(slug);
