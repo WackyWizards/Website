@@ -174,7 +174,7 @@ export default function Home() {
                 Video Games
               </p>
               <div className="flex gap-4 items-center justify-center">
-                {organization.socialLinks.map((link) => (
+                {Array.from(organization.socialLinks.values()).map((link) => (
                   <a
                     key={link.name}
                     href={link.url}

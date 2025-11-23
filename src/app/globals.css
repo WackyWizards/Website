@@ -49,7 +49,6 @@ body {
   color: white;
 }
 
-/* Optional: Add a subtle hint on hover */
 .spoiler:not(.revealed)::after {
   content: '';
   position: absolute;
