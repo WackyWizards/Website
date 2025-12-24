@@ -20,7 +20,7 @@ export interface SocialLink {
 
 export const organization: Organization = {
   name: 'Wacky Wizards',
-  description: 'Indie Game Development Organization',
+  description: 'Indie Development Organization',
   website: 'https://www.wackywizards.org',
   socialLinks: new Map<string, SocialLink>([
     [
