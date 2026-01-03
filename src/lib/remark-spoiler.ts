@@ -18,12 +18,16 @@ interface SpoilerNode extends Parent {
 const remarkSpoiler: Plugin<[], Root> = () => {
   return (tree) => {
     visit(tree, 'text', (node: Text, index, parent) => {
-      if (!parent || index === null || index === undefined) return;
+      if (!parent || index === null || index === undefined) {
+        return;
+      }
 
       const value = node.value;
       const spoilerRegex = /\|\|(.+?)\|\|/g;
 
-      if (!spoilerRegex.test(value)) return;
+      if (!spoilerRegex.test(value)) {
+        return;
+      }
 
       // Reset regex
       spoilerRegex.lastIndex = 0;
