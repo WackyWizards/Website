@@ -185,6 +185,39 @@ const teamMembers: TeamMember[] = [
       { message: 'One more click!', weight: 1 },
     ],
   },
+  {
+    name: 'Felix (shrimp)',
+    role: 'Game Designer',
+    avatar: '/felix.png',
+    country: 'US',
+    socialLinks: [],
+    messages: [
+      {
+        message: 'viruses are using your body for bitcoin mining',
+        weight: 1,
+      },
+      {
+        message: 'STUPID, STUPID, STUPID!',
+        weight: 1,
+      },
+      {
+        message: "can't i'm 11",
+        weight: 1,
+      },
+      {
+        message: 'ZTOP IT YOU ZEEBLOiNG',
+        weight: 1,
+      },
+      {
+        message: 'im an awkward guy',
+        weight: 1,
+      },
+      {
+        message: 'whatever. Go my minigames',
+        weight: 1,
+      },
+    ],
+  },
 ];
 
 type BubbleMessage = {
