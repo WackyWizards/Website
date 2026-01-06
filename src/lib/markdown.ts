@@ -19,6 +19,7 @@ export interface NewsPost {
   excerpt: string;
   content: string;
   featuredImage?: string;
+  tags: string[];
 }
 
 export async function getNewsPost(id: string): Promise<NewsPost | null> {
@@ -52,6 +53,7 @@ export async function getNewsPost(id: string): Promise<NewsPost | null> {
       excerpt: data.excerpt || '',
       content: contentHtml,
       featuredImage: data.featuredImage || data.featured_image || undefined,
+      tags: Array.isArray(data.tags) ? data.tags : [],
     };
 
     console.log('Created post object:', {

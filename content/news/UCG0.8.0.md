@@ -4,6 +4,9 @@ author: 'kellie'
 authorAvatar: '/kellie.jpg'
 date: '11.26.2025'
 excerpt: 'Patch notes for the Untitled Card Game V0.8.0 release'
+tags:
+    - Patch Notes
+    - Untitled Card Game
 ---
 
 Previous version runs may be incompatible with this version.

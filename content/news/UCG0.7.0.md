@@ -4,6 +4,9 @@ author: 'kellie'
 authorAvatar: '/kellie.jpg'
 date: '11.19.2025'
 excerpt: 'Patch notes for the Untitled Card Game V0.7.0 release'
+tags:
+    - Patch Notes
+    - Untitled Card Game
 ---
 
 I will from now on be publishing untitled card game updates every **wednesday** after the weekly s&box update, if I have something to add to the game.

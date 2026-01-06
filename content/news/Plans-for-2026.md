@@ -4,6 +4,8 @@ author: 'kellie'
 authorAvatar: '/kellie.jpg'
 date: '12.31.2025'
 excerpt: 'Looking back on 2025 and talking about our plans for 2026.'
+tags:
+    - News
 ---
 
 Hi everyone! First of all, thank you for being with us throughout 2025.

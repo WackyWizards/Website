@@ -18,7 +18,9 @@ export default async function NewsPage() {
           <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent mb-4">
             Latest News
           </h1>
-          <p className="text-base sm:text-lg text-gray-400">Hear about our latest updates and announcements.</p>
+          <p className="text-base sm:text-lg text-gray-400">
+            Hear about our latest updates and announcements.
+          </p>
         </header>
 
         <section id="latest-news">
@@ -45,6 +47,18 @@ export default async function NewsPage() {
                     </time>
                     {post.excerpt && (
                       <p className="text-gray-400 leading-relaxed">{post.excerpt}</p>
+                    )}
+                    {post.tags.length > 0 && (
+                      <ul className="mt-3 flex flex-wrap gap-2">
+                        {post.tags.map((tag) => (
+                          <li
+                            key={tag}
+                            className="rounded-full bg-gray-800 px-3 py-1 text-xs font-medium text-gray-300"
+                          >
+                            {tag}
+                          </li>
+                        ))}
+                      </ul>
                     )}
                   </Link>
                 </article>

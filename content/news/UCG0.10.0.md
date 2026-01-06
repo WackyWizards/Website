@@ -4,6 +4,9 @@ author: 'kellie'
 authorAvatar: '/kellie.jpg'
 date: '12.10.2025'
 excerpt: 'Patch notes for the Untitled Card Game V0.10.0 release'
+tags:
+    - Patch Notes
+    - Untitled Card Game
 ---
 
 Most of this week was spent refactoring some internal systems, so I haven't had much time to add new content. Nevertheless these refactors were much needed, and they allow us for example to add more complex card or action effects. Work will return to content real soon, my sincerest apologies.

@@ -4,6 +4,9 @@ author: 'kellie'
 authorAvatar: '/kellie.jpg'
 date: '12.03.2025'
 excerpt: 'Patch notes for the Untitled Card Game V0.9.0 release'
+tags:
+    - Patch Notes
+    - Untitled Card Game
 ---
 
 If you are curious whether the next update will be V1.0.0, it won't. I consider V1.0.0 to be the state I consider the game "complete" in. And as you probably know if you've tried the game so far, no, it's not even close yet.
