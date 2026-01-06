@@ -1,4 +1,3 @@
-import React from 'react';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import { getAllNewsPosts, getNewsPost } from '@/lib/markdown';
@@ -95,35 +94,49 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
     <main className="mx-auto min-h-screen bg-gray-900 py-16">
       <SpoilerScript />
 
-      <article className="relative mx-auto max-w-4xl px-6 md:px-10 pt-6 md:pt-10">
-        <header className="mb-8">
-          <div className="flex items-center space-x-4">
-            <h1 className="text-4xl font-bold mb-4 flex-grow">{post.title}</h1>
-            <div className="flex items-center space-x-2">
-              <span className="text-gray-400 text-lg">{post.author}</span>
+      <article className="mx-auto max-w-4xl px-6 md:px-10 pt-6 md:pt-10">
+        <header className="mb-10 border-b border-gray-800 pb-6">
+          <h1 className="text-4xl font-bold leading-tight text-white">{post.title}</h1>
+
+          <div className="mt-4 flex flex-wrap items-center gap-4 text-sm text-gray-400">
+            <div className="flex items-center gap-2">
               {post.authorAvatar && (
                 <Image
                   src={post.authorAvatar}
                   alt={post.author}
-                  width={40}
-                  height={40}
-                  className="w-10 h-10 rounded-full"
+                  width={32}
+                  height={32}
+                  className="h-8 w-8 rounded-full"
                 />
               )}
+              <span className="font-medium text-gray-300">{post.author}</span>
             </div>
+
+            <span aria-hidden="true">•</span>
+
+            <time dateTime={post.date}>
+              {new Date(post.date).toLocaleDateString('en-UK', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric',
+              })}
+            </time>
           </div>
-          <time dateTime={post.date} className="text-gray-400 text-lg">
-            {new Date(post.date).toLocaleDateString('en-UK', {
-              year: 'numeric',
-              month: 'long',
-              day: 'numeric',
-            })}
-          </time>
         </header>
+
         <div
-          className="prose prose-lg max-w-none prose-invert prose-headings:text-white prose-p:leading-relaxed prose-p:text-gray-300 prose-a:text-blue-400 hover:prose-a:text-blue-600 prose-strong:text-white"
+          className="
+          prose prose-lg max-w-none
+          prose-invert
+          prose-headings:text-white
+          prose-p:text-gray-300
+          prose-p:leading-relaxed
+          prose-a:text-blue-400 hover:prose-a:text-blue-500
+          prose-strong:text-white
+        "
           dangerouslySetInnerHTML={{ __html: post.content }}
         />
+
         <ArticleFooter title={post.title} />
       </article>
     </main>
