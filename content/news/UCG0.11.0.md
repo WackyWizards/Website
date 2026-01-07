@@ -9,7 +9,7 @@ tags:
     - Untitled Card Game
 ---
 
-This is a relatively mall update as we've just returned from a break. Expect weekly updates to continue. Apologies for the wait, hopefully you had a fun holidays and new years!
+This is a relatively small update as we've just returned from a break. Expect weekly updates to continue. Apologies for the wait, hopefully you had a fun holidays and new years!
 
 # Patch Notes
 
