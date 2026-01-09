@@ -252,33 +252,43 @@ function selectWeightedMessage(messages: { message: string; weight: number }[]):
 
 export default function Team() {
   const [activeBubble, setActiveBubble] = useState<BubbleMessage | null>(null);
-  const [timeoutId, setTimeoutId] = useState<NodeJS.Timeout | null>(null);
+  const [bubbleVisible, setBubbleVisible] = useState(false);
+
+  const timeoutRef = React.useRef<ReturnType<typeof setTimeout> | null>(null);
+  const hideTimeoutRef = React.useRef<ReturnType<typeof setTimeout> | null>(null);
 
   // Clear timeout on component unmount
   useEffect(() => {
     return () => {
-      if (timeoutId) {
-        clearTimeout(timeoutId);
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+      }
+      if (hideTimeoutRef.current) {
+        clearTimeout(hideTimeoutRef.current);
       }
     };
-  }, [timeoutId]);
+  }, []);
 
   const handleMemberClick = (member: TeamMember) => {
-    // Clear existing timeout
-    if (timeoutId) {
-      clearTimeout(timeoutId);
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+    }
+    if (hideTimeoutRef.current) {
+      clearTimeout(hideTimeoutRef.current);
     }
 
     const selectedMessage = selectWeightedMessage(member.messages);
+
     setActiveBubble({ memberName: member.name, message: selectedMessage });
+    setBubbleVisible(true);
 
-    // Set new timeout and store its ID
-    const newTimeoutId = setTimeout(() => {
-      setActiveBubble(null);
-      setTimeoutId(null);
+    timeoutRef.current = setTimeout(() => {
+      setBubbleVisible(false);
+
+      hideTimeoutRef.current = setTimeout(() => {
+        setActiveBubble(null);
+      }, 300);
     }, 3000);
-
-    setTimeoutId(newTimeoutId);
   };
 
   return (
@@ -303,12 +313,28 @@ export default function Team() {
             <div key={member.name} className="flex flex-col items-center text-center relative">
               {/* Speech Bubble */}
               {activeBubble?.memberName === member.name && (
-                <div className="absolute -top-14 left-1/2 transform -translate-x-1/2 z-10">
+                <div
+                  className={`
+      absolute -top-14 left-1/2 -translate-x-1/2 z-10
+      transition-all duration-300 ease-out
+      ${
+        bubbleVisible
+          ? 'opacity-100 translate-y-0 scale-100 pointer-events-auto'
+          : 'opacity-0 translate-y-1 scale-95 pointer-events-none'
+      }
+    `}
+                >
                   <div
-                    className="relative bg-white text-gray-800 px-3 py-2 rounded-lg shadow-lg text-xs sm:text-sm whitespace-nowrap max-w-[12rem] sm:max-w-none animate-bubble origin-center transition-all duration-300"
+                    onClick={(e) => e.stopPropagation()}
+                    className="relative bg-white text-gray-800 px-3 py-2 rounded-lg shadow-lg
+                 text-xs sm:text-sm whitespace-nowrap max-w-[12rem] sm:max-w-none"
                     dangerouslySetInnerHTML={{ __html: activeBubble.message }}
                   />
-                  <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-white"></div>
+                  <div
+                    className="absolute top-full left-1/2 -translate-x-1/2
+                 w-0 h-0 border-l-4 border-r-4 border-t-4
+                 border-transparent border-t-white"
+                  />
                 </div>
               )}
 
