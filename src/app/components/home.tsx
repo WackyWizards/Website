@@ -41,9 +41,9 @@ export default function Home() {
 
   // Typewriter effect
   useEffect(() => {
-    let typeTimer: NodeJS.Timeout;
-    let eraseTimer: NodeJS.Timeout;
-    let nextWordTimer: NodeJS.Timeout;
+    let typeTimer: ReturnType<typeof setTimeout> | null = null;
+    let eraseTimer: ReturnType<typeof setTimeout> | null = null;
+    let nextWordTimer: ReturnType<typeof setTimeout> | null = null;
 
     const typeText = (text: string) => {
       let i = 0;
@@ -57,7 +57,6 @@ export default function Home() {
           typeTimer = setTimeout(type, 100);
         } else {
           setIsTyping(false);
-          // Wait 3 seconds before starting to erase
           eraseTimer = setTimeout(() => eraseText(text), 8000);
         }
       };
@@ -75,7 +74,6 @@ export default function Home() {
           typeTimer = setTimeout(erase, 50);
         } else {
           setIsTyping(false);
-          // Wait 500ms before next word
           nextWordTimer = setTimeout(() => {
             const nextIndex = (adjectives.indexOf(currentAdjective) + 1) % adjectives.length;
             setCurrentAdjective(adjectives[nextIndex]);
@@ -88,9 +86,15 @@ export default function Home() {
     typeText(currentAdjective);
 
     return () => {
-      clearTimeout(typeTimer);
-      clearTimeout(eraseTimer);
-      clearTimeout(nextWordTimer);
+      if (typeTimer) {
+        clearTimeout(typeTimer);
+      }
+      if (eraseTimer) {
+        clearTimeout(eraseTimer);
+      }
+      if (nextWordTimer) {
+        clearTimeout(nextWordTimer);
+      }
     };
   }, [currentAdjective]);
 
