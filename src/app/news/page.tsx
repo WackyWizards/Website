@@ -9,7 +9,22 @@ export const metadata: Metadata = {
 };
 
 export default async function NewsPage() {
-  const posts = await getAllNewsPosts();
+  const posts = (await getAllNewsPosts()).sort((a, b) => {
+    const aIsNews = a.tags.includes('News');
+    const bIsNews = b.tags.includes('News');
+
+    // "News" tagged posts first
+    if (aIsNews && !bIsNews) {
+      return -1;
+    }
+    
+    if (!aIsNews && bIsNews) {
+      return 1;
+    }
+
+    // Otherwise, sort by date (newest first)
+    return new Date(b.date).getTime() - new Date(a.date).getTime();
+  });
 
   return (
     <main className="min-h-screen bg-gray-900 py-16">
