@@ -31,8 +31,6 @@ Dev note: These difficulties aren't final, and will be tweaked a bunch in the co
 
 - Edited the effect of the relic "Fate's Favor"; upon activation it now also draws 1 card.
 
-- The "Enchanted" status effect is now named "Enchantment".
-
 - Slightly reworded the descriptions of the following status effects: "Protection", "Fragile", "Burn", "Bleed", "Enchantment".
 
 - Changed the name of the status effect "Enchanted" to "Enchantment".
