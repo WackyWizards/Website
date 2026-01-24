@@ -193,25 +193,41 @@ export default function CookieConsentBanner() {
               </div>
             </div>
 
-            <div className="flex flex-wrap gap-2 justify-end pt-2">
-              <button
-                onClick={handleRejectAll}
-                className="bg-gray-600 text-white px-4 py-2 text-sm rounded hover:bg-gray-500 transition duration-200 cursor-pointer"
-              >
-                Reject All
-              </button>
-              <button
-                onClick={handleAcceptSelected}
-                className="bg-blue-600 text-white px-4 py-2 text-sm rounded hover:bg-blue-500 transition duration-200 cursor-pointer"
-              >
-                Accept Selected
-              </button>
-              <button
-                onClick={handleAcceptAll}
-                className="bg-blue-600 text-white px-4 py-2 text-sm rounded hover:bg-blue-500 transition duration-200 cursor-pointer"
-              >
-                Accept All
-              </button>
+            <div className="pt-4 border-t border-gray-700">
+              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+                {/* Learn more */}
+                <p className="text-sm">
+                  We use cookies to improve your experience and analyze site usage.
+                  <a
+                    href="/privacy"
+                    className="underline text-blue-400 hover:text-blue-300 ml-1 cursor-pointer"
+                  >
+                    Learn more
+                  </a>
+                </p>
+
+                {/* Buttons */}
+                <div className="flex flex-wrap gap-2 sm:justify-end">
+                  <button
+                    onClick={handleRejectAll}
+                    className="bg-gray-600 text-white px-4 py-2 text-sm rounded hover:bg-gray-500 transition duration-200 cursor-pointer"
+                  >
+                    Reject All
+                  </button>
+                  <button
+                    onClick={handleAcceptSelected}
+                    className="bg-blue-600 text-white px-4 py-2 text-sm rounded hover:bg-blue-500 transition duration-200 cursor-pointer"
+                  >
+                    Accept Selected
+                  </button>
+                  <button
+                    onClick={handleAcceptAll}
+                    className="bg-blue-600 text-white px-4 py-2 text-sm rounded hover:bg-blue-500 transition duration-200 cursor-pointer"
+                  >
+                    Accept All
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
         )}
