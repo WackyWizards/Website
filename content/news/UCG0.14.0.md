@@ -15,7 +15,7 @@ Another small update today. This last week has been hectic, and it looks like my
 
 ## Edits
 
-- Updated the cost of the card **"Expand Mind"** to **2**, was **1**.
+- Updated the cost of the card **"Expand Mind"** to **1**, was **0**.
 
 - Updated the rarity "Epic" on Relics to be "Legendary" instead.
 
