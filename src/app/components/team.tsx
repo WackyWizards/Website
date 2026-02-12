@@ -26,6 +26,7 @@ type TeamMember = {
   avatar: string;
   country?: string; // Country code (ISO 3166-1 alpha-2)
   socialLinks?: SocialLink[];
+  pronouns?: string;
   messages: Message[];
 };
 
@@ -366,10 +367,15 @@ export default function Team() {
                 )}
               </div>
 
-              {/* Name */}
-              <h3 className="text-lg sm:text-xl lg:text-2xl font-semibold leading-tight">
-                {member.name}
-              </h3>
+              {/* Name and Pronouns */}
+              <div className="mb-1">
+                <h3 className="text-lg sm:text-xl lg:text-2xl font-semibold leading-tight">
+                  {member.name}
+                </h3>
+                {member.pronouns && (
+                  <p className="text-xs sm:text-sm text-gray-500 mt-0.5">({member.pronouns})</p>
+                )}
+              </div>
 
               {/* Role */}
               <p className="text-xs sm:text-sm lg:text-base text-gray-400 leading-relaxed px-1 mb-2">
