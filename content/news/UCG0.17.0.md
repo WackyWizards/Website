@@ -11,13 +11,13 @@ tags:
 
 This is one big update.
 
-The game has changed the organization it's under. It is now available under: https://sbox.game/wizards/card_game instead of the old ident. You will have to re-favorite it on s&box!
+The game has changed the organization it's under. It is now available under: [https://sbox.game/wizards/card_game](https://sbox.game/wizards/card_game) instead of the old ident. You will have to re-favorite it on s&box!
 
 I've been working on this update for a while now, getting the game more ready for the release of s&box, clearing out a bunch of bugs and adding new content. I want to start advertising and being more open about the game now. My self concious doesn't fully like it, but I think it needs to be done. I still consider this build to be "Alpha", but I believe we are nearing the "Beta" stage very soon.
 
 Everything is starting to take more shape. But don't expect the game to be anything amazing yet. It's still got a long ways to go. And I plan to keep working on it until it shines, however long that takes.
 
-If you would like to work on the game with me, **we are hiring,** especially 2D pixel artists, music artists, SFX artists, game designers please apply: https://www.wackywizards.org/apply
+If you would like to work on the game with me, **we are hiring,** especially 2D pixel artists, music artists, SFX artists, game designers please apply: [https://www.wackywizards.org/apply](https://www.wackywizards.org/apply)
 
 # Patch Notes
 
