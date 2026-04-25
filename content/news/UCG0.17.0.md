@@ -35,8 +35,6 @@ If you would like to work on the game with me, **we are hiring,** especially 2D 
 
 - Added Damage Resistance to units, which multiplies the amount of physical damage taken by the value.
 
-- Added "completefloor" cheat command.
-
 - Added "Threat Scaling" passive which provides Strength & Fortify for each 4 levels.
 
 - You may now choose to heal individual units in the shop instead of just yourself. Healing allies is cheaper.
