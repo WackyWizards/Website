@@ -17,7 +17,7 @@ export default function PrivacyPolicy() {
           <p className="text-base sm:text-lg text-gray-400">Last Updated: August 6th, 2025</p>
         </header>
 
-        <div className="prose prose-invert prose-lg max-w-none text-gray-300">
+        <div className="max-w-none text-gray-300">
           <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-8 mb-8">
             <p className="text-xl leading-relaxed text-gray-200">
               We are committed to protecting your privacy and being transparent about how we handle

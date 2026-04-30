@@ -18,7 +18,7 @@ export default function CodeOfConduct() {
           <p className="text-base sm:text-lg text-gray-400">Last Updated: April 30th, 2026</p>
         </header>
 
-        <div className="prose prose-invert prose-lg max-w-none text-gray-300">
+        <div className="max-w-none text-gray-300">
           <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-8 mb-8">
             <p className="text-xl leading-relaxed text-gray-200">
               A primary goal of this community is to be inclusive to the largest number of people,
