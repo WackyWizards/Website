@@ -1011,7 +1011,12 @@ export default function PrivacyPolicy() {
                   </div>
                   <div>
                     <span className="font-semibold text-white">Email:</span>
-                    <span className="text-gray-300 ml-2">contact@wackywizards.org</span>
+                    <a
+                      href="mailto:contact@wackywizards.org"
+                      className="text-blue-400 hover:text-blue-300 ml-2 underline transition-colors"
+                    >
+                      contact@wackywizards.org
+                    </a>
                   </div>
                 </div>
 
