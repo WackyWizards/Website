@@ -123,7 +123,7 @@ const teamMembers: TeamMember[] = [
   },
   {
     name: 'AWildErin',
-    role: 'Programmer, DevOps Engineer',
+    role: 'Service Programmer, DevOps Engineer',
     avatar: '/AWildErin.gif',
     country: 'GB',
     socialLinks: [],
@@ -131,11 +131,26 @@ const teamMembers: TeamMember[] = [
   },
   {
     name: 'Dutchy42',
-    role: 'Backend Programmer',
+    role: 'Service Programmer',
     avatar: '/Dutchy42.png',
     country: 'NL',
     socialLinks: [],
     messages: [],
+  },
+  {
+    name: 'Felix (shrimp)',
+    role: 'Game Designer',
+    avatar: '/felix.png',
+    country: 'US',
+    socialLinks: [],
+    messages: [
+      { message: 'viruses are using your body for bitcoin mining', weight: 1 },
+      { message: 'STUPID, STUPID, STUPID!', weight: 1 },
+      { message: "can't i'm 11", weight: 1 },
+      { message: 'ZTOP IT YOU ZEEBLOiNG', weight: 1 },
+      { message: 'im an awkward guy', weight: 1 },
+      { message: 'whatever. Go my minigames', weight: 1 },
+    ],
   },
   {
     name: 'SharpMars',
@@ -166,39 +181,6 @@ const teamMembers: TeamMember[] = [
       { message: 'Click just one more time...', weight: 1 },
       { message: 'Click again!', weight: 1 },
       { message: 'One more click!', weight: 1 },
-    ],
-  },
-  {
-    name: 'Felix (shrimp)',
-    role: 'Game Designer',
-    avatar: '/felix.png',
-    country: 'US',
-    socialLinks: [],
-    messages: [
-      {
-        message: 'viruses are using your body for bitcoin mining',
-        weight: 1,
-      },
-      {
-        message: 'STUPID, STUPID, STUPID!',
-        weight: 1,
-      },
-      {
-        message: "can't i'm 11",
-        weight: 1,
-      },
-      {
-        message: 'ZTOP IT YOU ZEEBLOiNG',
-        weight: 1,
-      },
-      {
-        message: 'im an awkward guy',
-        weight: 1,
-      },
-      {
-        message: 'whatever. Go my minigames',
-        weight: 1,
-      },
     ],
   },
 ];
