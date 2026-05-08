@@ -242,29 +242,30 @@ export default function Team() {
 
   // Clear timeout on component unmount
   useEffect(() => {
-    return () => {
-      if (timeoutRef.current) {
-        clearTimeout(timeoutRef.current);
-      }
-      if (hideTimeoutRef.current) {
-        clearTimeout(hideTimeoutRef.current);
-      }
-    };
+    return clearBubbleTimeouts;
   }, []);
 
   const handleMemberClick = (member: TeamMember) => {
+    showBubble(member);
+  };
+
+  const clearBubbleTimeouts = () => {
     if (timeoutRef.current) {
       clearTimeout(timeoutRef.current);
     }
+
     if (hideTimeoutRef.current) {
       clearTimeout(hideTimeoutRef.current);
     }
+  };
+
+  const showBubble = (member: TeamMember) => {
+    clearBubbleTimeouts();
 
     const selectedMessage = selectWeightedMessage(member.messages);
-
     setActiveBubble({ memberName: member.name, message: selectedMessage });
     setBubbleVisible(true);
-
+    
     timeoutRef.current = setTimeout(() => {
       setBubbleVisible(false);
 
@@ -272,7 +273,7 @@ export default function Team() {
         setActiveBubble(null);
       }, 300);
     }, 3000);
-  };
+  }
 
   return (
     <section
@@ -325,8 +326,7 @@ export default function Team() {
               <div className="relative mb-3 sm:mb-4">
                 {/* Avatar */}
                 <div
-                  className="w-20 h-20 sm:w-24 sm:h-24 lg:w-32 lg:h-32 rounded-full bg-gray-700 overflow-hidden relative ring-3 ring-gray-800 hover:ring-blue-500 transition-all duration-400 cursor-pointer"
-                  onClick={() => handleMemberClick(member)}
+                  className="w-20 h-20 sm:w-24 sm:h-24 lg:w-32 lg:h-32 rounded-full bg-gray-700 overflow-hidden relative ring-3 ring-gray-800 hover:ring-blue-500 transition-all duration-400"
                 >
                   <Image
                     src={member.avatar}
@@ -405,12 +405,6 @@ export default function Team() {
               </p>
             </div>
           </div>
-        </div>
-
-        <div className="mt-8 sm:mt-12 mb-3 text-center text-gray-400">
-          <p className="text-sm sm:text-base">
-            Click on a team member to see what they have to say!
-          </p>
         </div>
       </div>
     </section>
