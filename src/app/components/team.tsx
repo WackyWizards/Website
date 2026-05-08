@@ -123,7 +123,7 @@ const teamMembers: TeamMember[] = [
   },
   {
     name: 'AWildErin',
-    role: 'Programmer',
+    role: 'Programmer, DevOps Engineer',
     avatar: '/AWildErin.gif',
     country: 'GB',
     socialLinks: [],
@@ -131,7 +131,7 @@ const teamMembers: TeamMember[] = [
   },
   {
     name: 'Dutchy42',
-    role: 'Programmer',
+    role: 'Backend Programmer',
     avatar: '/Dutchy42.png',
     country: 'NL',
     socialLinks: [],
