@@ -123,7 +123,7 @@ const teamMembers: TeamMember[] = [
   },
   {
     name: 'AWildErin',
-    role: 'Service Programmer, DevOps Engineer',
+    role: 'Programmer, DevOps Engineer',
     avatar: '/AWildErin.gif',
     country: 'GB',
     socialLinks: [],
