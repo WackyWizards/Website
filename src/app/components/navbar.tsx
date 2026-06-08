@@ -3,7 +3,7 @@
 import { organization } from '@/constants';
 import { useState } from 'react';
 import { FiMenu, FiX } from 'react-icons/fi';
-import { FaHome, FaGamepad, FaNewspaper } from 'react-icons/fa';
+import { FaHome, /* FaGamepad, */ FaNewspaper } from 'react-icons/fa';
 import { LuUsers } from 'react-icons/lu';
 import { redirect } from 'next/navigation';
 
@@ -53,6 +53,7 @@ export default function Navbar() {
                 <p className="w-full">Home</p>
                 <FaHome className="text-gray-400" size={24} />
               </div>
+              { /*
               <div
                 onClick={() => scrollToSection('games')}
                 className="flex p-1 w-full hover:border-left hover:text-gray-400 cursor-pointer"
@@ -60,6 +61,7 @@ export default function Navbar() {
                 <p className="w-full">Games</p>
                 <FaGamepad className="text-gray-400" size={24} />
               </div>
+               */ }
               <div
                 onClick={() => scrollToSection('team')}
                 className="flex p-1 w-full hover:border-left hover:text-gray-400 cursor-pointer"

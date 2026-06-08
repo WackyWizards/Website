@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import Games from '@/app/components/games';
+//import Games from '@/app/components/games';
 import Team from '@/app/components/team';
 import { organization } from '@/constants';
 
@@ -204,7 +204,7 @@ export default function Home() {
           </div>
         </section>
 
-        <Games />
+        {/* <Games /> */}
         <Team />
       </div>
     </div>
