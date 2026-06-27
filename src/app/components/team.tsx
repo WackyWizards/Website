@@ -153,14 +153,6 @@ const teamMembers: TeamMember[] = [
     ],
   },
   {
-    name: 'Tameranian',
-    role: '3D Artist',
-    avatar: '/Tameranian.jpg',
-    country: 'US',
-    socialLinks: [],
-    messages: [],
-  },
-  {
     name: 'Yumeko',
     role: 'Concept Artist, UI/UX Designer',
     avatar: '/Yumeko.png',

@@ -65,12 +65,10 @@ export const games: Game[] = [
   },
 ];
 
-/** Find a game by its slug */
 export function findGameBySlug(slug: string): Game | undefined {
   return games.find((g) => g.slug.toLowerCase() === slug.toLowerCase());
 }
 
-/** Get all game slugs */
 export function getAllGameSlugs(): string[] {
   return games.map((g) => g.slug);
 }
