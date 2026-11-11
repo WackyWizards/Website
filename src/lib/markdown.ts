@@ -4,7 +4,7 @@ import matter from 'gray-matter';
 import { remark } from 'remark';
 import remarkRehype from 'remark-rehype';
 import rehypeStringify from 'rehype-stringify';
-import remarkUnwrapImages from 'remark-unwrap-images';
+import rehypeUnwrapImages from 'rehype-unwrap-images';
 import remarkSpoiler from './remark-spoiler';
 import { organization } from '@/constants';
 
@@ -36,10 +36,10 @@ export async function getNewsPost(id: string): Promise<NewsPost | null> {
 
     // Process markdown to HTML
     const processedContent = await remark()
-      .use(remarkUnwrapImages)
       .use(remarkSpoiler)
-      .use(remarkRehype) // convert mdast → hast
-      .use(rehypeStringify) // convert hast → HTML
+      .use(remarkRehype) // Convert mdast → hast
+      .use(rehypeUnwrapImages)
+      .use(rehypeStringify) // Convert hast → HTML
       .process(content);
 
     const contentHtml = processedContent.toString();
@@ -62,6 +62,7 @@ export async function getNewsPost(id: string): Promise<NewsPost | null> {
       date: post.date,
       featuredImage: post.featuredImage,
     });
+
     return post;
   } catch (error) {
     console.error(`Error reading news post ${id}:`, error);
@@ -87,15 +88,13 @@ export async function getAllNewsPosts(): Promise<NewsPost[]> {
     const posts = await Promise.all(
       markdownFiles.map(async (name) => {
         const id = name.replace(/\.md$/, '');
-        const post = await getNewsPost(id);
-        return post;
-      })
+        return getNewsPost(id);
+      }),
     );
 
     const validPosts = posts.filter((post): post is NewsPost => post !== null);
-    const sortedPosts = validPosts.sort((a, b) => (a.date < b.date ? 1 : -1));
 
-    return sortedPosts;
+    return validPosts.sort((a, b) => (a.date < b.date ? 1 : -1));
   } catch (error) {
     console.error('Error reading news posts:', error);
     return [];

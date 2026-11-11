@@ -176,15 +176,6 @@ export default function Team() {
   const timeoutRef = React.useRef<ReturnType<typeof setTimeout> | null>(null);
   const hideTimeoutRef = React.useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  // Clear timeout on component unmount
-  useEffect(() => {
-    return clearBubbleTimeouts;
-  }, []);
-
-  const handleMemberClick = (member: TeamMember) => {
-    showBubble(member);
-  };
-
   const clearBubbleTimeouts = () => {
     if (timeoutRef.current) {
       clearTimeout(timeoutRef.current);
@@ -193,6 +184,15 @@ export default function Team() {
     if (hideTimeoutRef.current) {
       clearTimeout(hideTimeoutRef.current);
     }
+  };
+  
+  // Clear timeout on component unmount
+  useEffect(() => {
+    return clearBubbleTimeouts;
+  }, []);
+
+  const handleMemberClick = (member: TeamMember) => {
+    showBubble(member);
   };
 
   const showBubble = (member: TeamMember) => {

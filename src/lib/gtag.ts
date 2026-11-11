@@ -1,9 +1,11 @@
 import { GTag } from '@/constants';
 
 export const pageview = (url: string) => {
-  window.gtag('config', GTag, {
-    page_path: url,
-  });
+  if (typeof window.gtag === 'function') {
+    window.gtag('config', GTag, {
+      page_path: url,
+    });
+  }
 };
 
 type GTagEvent = {
@@ -14,9 +16,11 @@ type GTagEvent = {
 };
 
 export const event = ({ action, category, label, value }: GTagEvent) => {
-  window.gtag('event', action, {
-    event_category: category,
-    event_label: label,
-    value,
-  });
+  if (typeof window.gtag === 'function') {
+    window.gtag('event', action, {
+      event_category: category,
+      event_label: label,
+      value,
+    });
+  }
 };
